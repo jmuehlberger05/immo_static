@@ -1,0 +1,97 @@
+@font-face {
+  font-family: "Nohemi";
+  src: url(../public/fonts/Nohemi-Variable.ttf) format("truetype");
+  font-weight: 100 900;
+}
+body {
+  background-color: #fff;
+  font-family: "Nohemi", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/*  Header + Navigation  */
+.primary-navigation {
+  --nav-spacing: 2rem;
+  height: 100px;
+}
+
+.primary-navigation__wrapper {
+  max-width: 100em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding-inline: 1em;
+  height: 100%;
+}
+
+.primary-navigation__links ul {
+  display: flex;
+  gap: var(--nav-spacing);
+  margin-top: 12%;
+}
+
+/*  Button Styles  */
+.btn {
+  border: 2px solid transparent;
+  text-decoration: none;
+  color: #000;
+  display: block;
+  overflow: hidden;
+  height: 50%;
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 1rem;
+  transition: all 500ms cubic-bezier(0.11, 0.47, 0.31, 0.88);
+}
+.btn .btn-text {
+  display: grid;
+  gap: 1rem;
+  transition: all 500ms cubic-bezier(0.11, 0.47, 0.31, 0.88);
+  flex-shrink: 0;
+}
+.btn:hover > .btn-text {
+  transform: translateY(-2.4rem);
+}
+.btn:focus {
+  transform: scale(0.9);
+}
+
+.btn-outline {
+  border-radius: 100vh;
+  border: 2px solid #000;
+}
+.btn-outline:hover {
+  background-color: #000;
+}
+.btn-outline:hover > .btn-text {
+  color: #fff;
+}
+
+.btn-filled-icon {
+  border-radius: 100vh;
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+}
+.btn-filled-icon .btn-icon {
+  transition: all 500ms cubic-bezier(0.11, 0.47, 0.31, 0.88);
+  transition-delay: 80ms;
+}
+.btn-filled-icon:hover > .btn-icon {
+  transform: translateX(5px);
+}
+
+/*  Main  */
+.hero-section {
+  padding-block: 5rem;
+  padding-inline: 1em;
+  max-width: 100em;
+  margin: 0 auto;
+}
+.hero-section h1 {
+  text-transform: uppercase;
+  font-size: min(9.7rem, 9.9vw);
+  line-height: 1.1;
+}/*# sourceMappingURL=style.css.map */

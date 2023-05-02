@@ -1,0 +1,137 @@
+$clr-primary-900: #000;
+$clr-secondary-100: #fff;
+
+$clr-accent-500: #5f8cad;
+
+$break-widht-1: 100em;
+
+$padding-inline-1: 1em;
+
+$ff-primary: "Nohemi", sans-serif;
+
+$fw-primary: 400;
+
+$fs-primary: 1rem;
+$fs-secondary: 1.2rem;
+
+$border-style-transparent: 2px solid transparent;
+$border-style-1: 2px solid $clr-primary-900;
+
+$border-radius-pill: 100vh;
+
+$custom-ease-1: cubic-bezier(0.06, 0.85, 0.58, 1);
+$custon-ease-2: cubic-bezier(0.11, 0.47, 0.31, 0.88);
+
+$transition-short: all 500ms $custon-ease-2;
+
+@font-face {
+  font-family: "Nohemi";
+  src: url(../public/fonts/Nohemi-Variable.ttf) format("truetype");
+  font-weight: 100 900;
+}
+
+body {
+  background-color: $clr-secondary-100;
+  font-family: $ff-primary;
+  font-weight: $fw-primary;
+  font-size: $fs-primary;
+}
+
+/*  Header + Navigation  */
+
+.primary-navigation {
+  --nav-spacing: 2rem;
+
+  height: 100px;
+  //   border: 1px solid black;
+}
+
+.primary-navigation__wrapper {
+  max-width: $break-widht-1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding-inline: $padding-inline-1;
+  height: 100%;
+}
+
+.primary-navigation__links ul {
+  display: flex;
+  gap: var(--nav-spacing);
+  margin-top: 12%;
+}
+
+/*  Button Styles  */
+
+.btn {
+  border: $border-style-transparent;
+  text-decoration: none;
+  color: $clr-primary-900;
+  display: block;
+  overflow: hidden;
+  height: 50%;
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 1rem;
+  transition: $transition-short;
+
+  .btn-text {
+    display: grid;
+    gap: 1rem;
+    transition: $transition-short;
+    flex-shrink: 0;
+  }
+
+  &:hover > .btn-text {
+    transform: translateY(calc(-2.4 * $fs-primary));
+  }
+
+  &:focus {
+    transform: scale(0.9);
+  }
+}
+
+.btn-outline {
+  border-radius: $border-radius-pill;
+  border: $border-style-1;
+
+  &:hover {
+    background-color: $clr-primary-900;
+  }
+
+  &:hover > .btn-text {
+    color: $clr-secondary-100;
+  }
+}
+
+.btn-filled-icon {
+  border-radius: $border-radius-pill;
+  border: $border-style-1;
+  background-color: $clr-primary-900;
+  color: $clr-secondary-100;
+
+  .btn-icon {
+    transition: $transition-short;
+    transition-delay: 80ms;
+  }
+
+  &:hover > .btn-icon {
+    transform: translateX(5px);
+  }
+}
+
+/*  Main  */
+
+.hero-section {
+  padding-block: 5rem;
+  padding-inline: $padding-inline-1;
+  max-width: $break-widht-1;
+  margin: 0 auto;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: min(9.7rem, 9.9vw);
+    line-height: 1.1;
+  }
+}
