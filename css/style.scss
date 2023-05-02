@@ -4,6 +4,7 @@ $clr-secondary-100: #fff;
 $clr-accent-500: #5f8cad;
 
 $break-widht-1: 100em;
+$break-width-mobile: 40em;
 
 $padding-inline-1: 1em;
 
@@ -19,10 +20,15 @@ $border-style-1: 2px solid $clr-primary-900;
 
 $border-radius-pill: 100vh;
 
+$border-radius-primary: 15px;
+
 $custom-ease-1: cubic-bezier(0.06, 0.85, 0.58, 1);
 $custon-ease-2: cubic-bezier(0.11, 0.47, 0.31, 0.88);
 
 $transition-short: all 500ms $custon-ease-2;
+$transition-extrashort: all 200ms $custon-ease-2;
+
+$header-height: 100px;
 
 @font-face {
   font-family: "Nohemi";
@@ -39,27 +45,67 @@ body {
 
 /*  Header + Navigation  */
 
-.primary-navigation {
-  --nav-spacing: 2rem;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 
-  height: 100px;
-  //   border: 1px solid black;
-}
+  .primary-navigation {
+    --nav-spacing: 2rem;
 
-.primary-navigation__wrapper {
-  max-width: $break-widht-1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  padding-inline: $padding-inline-1;
-  height: 100%;
-}
+    height: $header-height;
+    background-color: $clr-secondary-100;
+    // border: 1px solid black;
+  }
 
-.primary-navigation__links ul {
-  display: flex;
-  gap: var(--nav-spacing);
-  margin-top: 12%;
+  .primary-navigation__wrapper {
+    max-width: $break-widht-1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding-inline: $padding-inline-1;
+    height: 100%;
+  }
+
+  .primary-navigation__links ul {
+    display: flex;
+    gap: var(--nav-spacing);
+    margin-top: 8%;
+  }
+
+  .hamburger {
+    border: none;
+    background-color: transparent;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40px;
+    gap: 0.6rem;
+    transition: $transition-extrashort;
+
+    .hamburger__line {
+      width: 100%;
+      height: 0.15rem;
+      background-color: $clr-primary-900;
+    }
+
+    &:hover {
+      gap: 0.8rem;
+    }
+
+    &[data-active="true"] {
+      gap: 0;
+
+      .hamburger__line {
+        height: 0.05rem;
+        transition-delay: 128ms;
+      }
+    }
+  }
 }
 
 /*  Button Styles  */
@@ -123,15 +169,114 @@ body {
 
 /*  Main  */
 
-.hero-section {
-  padding-block: 5rem;
-  padding-inline: $padding-inline-1;
-  max-width: $break-widht-1;
-  margin: 0 auto;
+main {
+  section {
+    padding-inline: $padding-inline-1;
+    max-width: $break-widht-1;
+    margin: 0 auto;
+  }
 
-  h1 {
-    text-transform: uppercase;
-    font-size: min(9.7rem, 9.9vw);
-    line-height: 1.1;
+  .hero-section {
+    padding-block-start: calc(5rem + $header-height);
+
+    margin: 0 auto;
+
+    h1 {
+      text-transform: uppercase;
+      font-size: min(10rem, 9.9vw);
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-size: $fs-secondary;
+      max-width: 30ch;
+    }
+
+    .hero-section__content {
+      display: grid;
+      align-items: center;
+      gap: 1.5rem;
+      margin-left: 50%;
+    }
+  }
+
+  .button-container {
+    display: flex;
+    height: 80px;
+    gap: 1rem;
+  }
+
+  .slogan-section {
+    margin-top: 5rem;
+
+    .slogan {
+      font-size: 2.8rem;
+      text-transform: uppercase;
+      line-height: 1.1;
+      max-width: 30ch;
+      margin-bottom: 1rem;
+    }
+
+    & > * {
+      margin-left: 10%;
+    }
+  }
+
+  .parallax {
+    margin-top: 5rem;
+    position: relative;
+    border-radius: $border-radius-primary;
+    overflow: hidden;
+
+    .parallax__image {
+      transform: scale(1.05);
+      width: 100%;
+    }
+  }
+
+  @media (max-width: $break-width-mobile) {
+    .hero-section {
+      padding-block-start: calc(3rem + $header-height);
+
+      .hero-section__content {
+        margin-left: 0%;
+        margin-top: 2rem;
+      }
+
+      h1 {
+        font-size: 9.6vw;
+      }
+
+      .parallax {
+        margin-top: 1rem;
+        height: 25rem;
+
+        .parallax__image {
+          margin-top: -2rem;
+          height: 120%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+/*  Utility Classes  */
+
+.mobile {
+  display: flex;
+}
+
+.desktop {
+  display: none;
+}
+
+@media (min-width: $break-width-mobile) {
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
   }
 }

@@ -18,7 +18,7 @@
               <img src="./public/vite.svg" alt="Vite Logo" />
             </a>
           </div>
-          <div class="primary-navigation__links">
+          <div class="primary-navigation__links desktop">
             <ul>
               <li>
                 <a class="btn btn-outline" href="./index.html">
@@ -59,22 +59,129 @@
               </li>
             </ul>
           </div>
+          <div class="primary-navigation__hamburger mobile">
+            <button data-active="false" class="hamburger" onclick="toggleNav()">
+              <div class="hamburger__line"></div>
+              <div class="hamburger__line"></div>
+              <div class="hamburger__line"></div>
+            </button>
+          </div>
         </div>
       </nav>
     </header>
 
     <!-- Main -->
     <main>
-      <div class="hero-section">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <!-- H1 -->
         <h1>Wohnbauprojekt Pernau</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy.
-        </p>
-      </div>
+
+        <div class="hero-section__content">
+          <!-- Subtitle -->
+          <p class="subtitle">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy.
+          </p>
+
+          <!-- Button-container -->
+          <div class="button-container">
+            <!-- Filled Button -->
+            <a class="btn btn-filled-icon" href="./contact.html">
+              <div class="btn-text">
+                <div>Get in Touch</div>
+                <div>Get in Touch</div>
+              </div>
+              <img
+                class="btn-icon"
+                src="./public/Icons/arrow-right.svg"
+                alt=""
+              />
+            </a>
+
+            <!-- Outlined Button -->
+            <a class="btn btn-outline" href="./index.html">
+              <div class="btn-text">
+                <div>News</div>
+                <div>News</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Parallax -->
+        <div class="parallax">
+          <!-- <div class="bg"></div> -->
+          <img
+            class="parallax__image"
+            src="./public/images/hero-image-big.jpg"
+            alt=""
+          />
+        </div>
+      </section>
+
+      <!-- Slogan Section -->
+      <section class="slogan-section">
+        <h2 class="slogan">
+          Entdecken Sie moderne Architektur, gehobenen Lebensstil und
+          erstklassige Lage im neuen Immobilienprojekt in Linz. Erleben Sie
+          Wohnen auf höchstem Niveau.
+        </h2>
+        <div class="button-container">
+          <a class="btn btn-filled-icon" href="./contact.html">
+            <div class="btn-text">
+              <div>Mehr zum Projekt</div>
+              <div>Mehr zum Projekt</div>
+            </div>
+            <img class="btn-icon" src="./public/Icons/arrow-right.svg" alt="" />
+          </a>
+        </div>
+      </section>
     </main>
 
     <!-- footer -->
     <footer></footer>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+
+    <!-- Scripts -->
+
+    <!-- Menu -->
+    <script>
+      function toggleNav() {
+        const hamburger = document.querySelector(".hamburger");
+
+        if (hamburger.dataset.active === "true") {
+          hamburger.dataset.active = "false";
+        } else {
+          hamburger.dataset.active = "true";
+        }
+      }
+    </script>
+    <!-- Parallax -->
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.utils.toArray(".parallax").forEach(function (container) {
+        let image = container.querySelector("img");
+
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            scrub: true,
+            pin: false,
+          },
+        });
+        tl.from(image, {
+          yPercent: -20,
+          ease: "none",
+        }).to(image, {
+          yPercent: 20,
+          ease: "none",
+        });
+      });
+    </script>
   </body>
 </html>
