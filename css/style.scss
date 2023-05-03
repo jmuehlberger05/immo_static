@@ -25,6 +25,7 @@ $border-radius-primary: 15px;
 $custom-ease-1: cubic-bezier(0.06, 0.85, 0.58, 1);
 $custon-ease-2: cubic-bezier(0.11, 0.47, 0.31, 0.88);
 
+$transition-medium: all 700ms $custon-ease-2;
 $transition-short: all 500ms $custon-ease-2;
 $transition-extrashort: all 200ms $custon-ease-2;
 
@@ -170,48 +171,80 @@ header {
   @media (max-width: $break-width-mobile) {
     .mobile-navigation {
       position: fixed;
-      inset: 0;
-      padding-top: calc(2rem + $header-height);
+      top: 0;
+      left: 0;
+      right: 0;
+      margin-top: calc($padding-inline-1 + $header-height);
+      margin-inline: $padding-inline-1;
       padding-inline: calc($padding-inline-1 * 0.5);
-      background-color: $clr-secondary-100;
-      transform: translateX(100%);
-      transition: $transition-short;
+      background-color: rgb(255 255 255 / 0.9);
+      backdrop-filter: blur(10px);
+      transform: translateY(-150%);
+      transition: $transition-medium;
       z-index: -1;
       // transition-delay: 300ms;
-
-      .mobile-navigation__overlay {
-        position: fixed;
-        inset: 0;
-        background-color: rgba(0, 0, 0);
-        // z-index: ;
-        transition: $transition-short;
-        transition-delay: 0ms;
-      }
+      border-radius: $border-radius-primary;
+      border: 2px solid rgb(0 0 0 / 0.1);
 
       ul {
+        --spacing: 1rem;
+
         display: flex;
         flex-direction: column;
+        gap: var(--spacing);
+        padding-block: var(--spacing);
       }
 
       li {
-        height: 7.5rem;
+        // height: 7.5rem;
         position: relative;
+        opacity: 0;
+        transition-delay: 500ms;
+        text-align: center;
 
-        &::after {
-          display: grid;
-          width: 100%;
-          height: 100%;
-          background-color: $clr-primary-900;
+        &:last-of-type &:not(:last-of-type())::after {
+          content: "";
           position: absolute;
+          display: block;
+          width: 100%;
+          height: 0.1rem;
+          background-color: $clr-primary-900;
+          // bottom: 0;
           left: 0;
+          opacity: 0.2;
+        }
+
+        &:nth-of-type(1) {
+          transition-delay: 300ms;
+        }
+
+        &:nth-of-type(2) {
+          transition-delay: 450ms;
+        }
+
+        &:nth-of-type(3) {
+          transition-delay: 600ms;
+        }
+
+        &:nth-of-type(4) {
+          transition-delay: 750ms;
+        }
+
+        &:nth-of-type(5) {
+          transition-delay: 900ms;
+        }
+
+        &:nth-of-type(6) {
+          transition-delay: 1050ms;
         }
       }
 
       a {
-        font-size: 2rem;
-        text-transform: uppercase;
+        font-size: $fs-secondary;
+        // text-transform: uppercase;
+        font-weight: 300;
         text-decoration: none;
-        // color: $clr-primary-900;
+        color: $clr-primary-900;
         // color: $clr-secondary-100;
       }
 
@@ -227,7 +260,13 @@ header {
     }
 
     .active {
-      transform: translateX(0);
+      transform: translateY(0);
+
+      li {
+        opacity: 1;
+        transition: $transition-medium;
+        transition-delay: 0ms;
+      }
     }
   }
 }
@@ -373,7 +412,7 @@ main {
       }
 
       h1 {
-        font-size: 9.6vw;
+        font-size: 9.44vw;
       }
 
       .parallax {
