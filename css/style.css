@@ -363,7 +363,7 @@ main .slider .active-slide .button-container {
     max-width: calc(100vw - 4em);
   }
 }
-@media (min-width: 40em) {
+@media (min-width: 60em) {
   main .next-slide-btn,
   main .prev-slide-btn {
     position: fixed;

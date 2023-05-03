@@ -448,9 +448,9 @@
         // console.log("WindowHeight" + window.pageYOffset);
 
         if (y > relativeTop && y < relativeBottom) {
-          // console.log("in");
+          console.log("in");
         } else {
-          // console.log("out");
+          console.log("out");
           prev.style.top = 0;
           next.style.top = 0;
           prev.classList.remove("active");
@@ -465,17 +465,16 @@
       const slider = document.querySelector(".slider");
       const slides = slider.querySelectorAll(".slide");
 
-      const breakWidth = 1600;
+      const breakWidth = 100 * 16;
       const mobileBreakWidth = 40 * 16;
       const tabletBreakWidth = 60 * 16;
-      xin;
 
       let offset = breakWidth * 0.1;
       let sideMargin = 0;
 
-      window.onresize = () => handleResize();
-
       let slideOffset = 0;
+
+      window.onresize = () => handleResize();
 
       // set margin of first slide
       const handleResize = () => {
@@ -486,8 +485,20 @@
           offset = (window.innerWidth - 32) * 0.1;
         }
 
-        if (window.innerWidth > tabletBreakWidth) {
+        if (window.innerWidth > mobileBreakWidth) {
           slides[0].style.marginLeft = `${offset + sideMargin}px`;
+        }
+
+        // Make all slides active on mobile and disable buttons
+        if (window.innerWidth <= tabletBreakWidth) {
+          slides.forEach((slide) => slide.classList.add("active-slide"));
+          next.style.display = "none";
+          prev.style.display = "none";
+        } else {
+          slides.forEach((slide) => slide.classList.remove("active-slide"));
+          slides[index].classList.add("active-slide");
+          next.style.display = "block";
+          prev.style.display = "block";
         }
 
         updateSlider();
@@ -523,13 +534,6 @@
         );
         // console.log(offset + sideMargin - slideOffset);
       }
-
-      if (window.innerWidth <= tabletBreakWidth) {
-        slides.forEach((slide) => slide.classList.add("active-slide"));
-      }
-
-      next.style.display = "none";
-      prev.style.display = "none";
     </script>
   </body>
 </html>

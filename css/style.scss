@@ -477,7 +477,7 @@ main {
     }
   }
 
-  @media (min-width: $break-width-mobile) {
+  @media (min-width: $break-width-tablet) {
     .next-slide-btn,
     .prev-slide-btn {
       position: fixed;
