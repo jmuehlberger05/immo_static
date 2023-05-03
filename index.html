@@ -491,7 +491,10 @@
 
         // Make all slides active on mobile and disable buttons
         if (window.innerWidth <= tabletBreakWidth) {
-          slides.forEach((slide) => slide.classList.add("active-slide"));
+          slides.forEach((slide) => {
+            slide.classList.add("active-slide");
+            console.log("active-slide");
+          });
           next.style.display = "none";
           prev.style.display = "none";
         } else {

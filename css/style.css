@@ -358,9 +358,19 @@ main .slider .active-slide .button-container {
     scroll-snap-align: start;
     scroll-snap-type: x mandatory;
   }
-  main .active-slide {
+  main .active-slide,
+  main .slide {
     margin-inline: 1em;
     max-width: calc(100vw - 4em);
+    height: 32rem !important;
+  }
+  main .active-slide h3,
+  main .slide h3 {
+    font-size: 1.5rem !important;
+  }
+  main .active-slide .button-container,
+  main .slide .button-container {
+    opacity: 1 !important;
   }
 }
 @media (min-width: 60em) {

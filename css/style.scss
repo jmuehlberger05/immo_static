@@ -471,9 +471,19 @@ main {
       scroll-snap-type: x mandatory;
     }
 
-    .active-slide {
+    .active-slide,
+    .slide {
       margin-inline: $padding-inline-1;
       max-width: calc(100vw - 4 * $padding-inline-1);
+      height: 32rem !important;
+
+      h3 {
+        font-size: $fs-tertiary !important;
+      }
+
+      .button-container {
+        opacity: 1 !important;
+      }
     }
   }
 
