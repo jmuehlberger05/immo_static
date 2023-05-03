@@ -1,37 +1,42 @@
-$clr-primary-900: #000;
-$clr-secondary-100: #fff;
+:root {
+  --clr-primary-900: #000;
+  --clr-primary-900-fixed: #000;
+  --clr-secondary-100: #fff;
+  --clr-secondary-100-fixed: #fff;
 
-$clr-accent-500: #5f8cad;
+  --clr-accent-500: #5f8cad;
+
+  --padding-inline-1: 1em;
+
+  --ff-primary: "Nohemi", sans-serif;
+
+  --fw-primary: 400;
+
+  --fs-primary: 1rem;
+  --fs-secondary: 1.2rem;
+  --fs-tertiary: 1.5rem;
+  --fs-title: 4.5rem;
+
+  --border-style-transparent: 2px solid transparent;
+  --border-style-1: 2px solid var(--clr-primary-900);
+
+  --border-radius-pill: 100vh;
+
+  --border-radius-primary: 15px;
+
+  --custom-ease-1: cubic-bezier(0.06, 0.85, 0.58, 1);
+  --custon-ease-2: cubic-bezier(0.11, 0.47, 0.31, 0.88);
+
+  --transition-medium: all 700ms var(--custon-ease-2);
+  --transition-short: all 500ms var(--custon-ease-2);
+  --transition-extrashort: all 200ms var(--custon-ease-2);
+
+  --header-height: 100px;
+}
 
 $break-width-1: 100em;
 $break-width-mobile: 40em;
 $break-width-tablet: 60em;
-
-$padding-inline-1: 1em;
-
-$ff-primary: "Nohemi", sans-serif;
-
-$fw-primary: 400;
-
-$fs-primary: 1rem;
-$fs-secondary: 1.2rem;
-$fs-tertiary: 1.5rem;
-
-$border-style-transparent: 2px solid transparent;
-$border-style-1: 2px solid $clr-primary-900;
-
-$border-radius-pill: 100vh;
-
-$border-radius-primary: 15px;
-
-$custom-ease-1: cubic-bezier(0.06, 0.85, 0.58, 1);
-$custon-ease-2: cubic-bezier(0.11, 0.47, 0.31, 0.88);
-
-$transition-medium: all 700ms $custon-ease-2;
-$transition-short: all 500ms $custon-ease-2;
-$transition-extrashort: all 200ms $custon-ease-2;
-
-$header-height: 100px;
 
 @font-face {
   font-family: "Nohemi";
@@ -40,36 +45,37 @@ $header-height: 100px;
 }
 
 body {
-  background-color: $clr-secondary-100;
-  font-family: $ff-primary;
-  font-weight: $fw-primary;
-  font-size: $fs-primary;
+  background-color: var(--clr-secondary-100);
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-primary);
+  font-size: var(--fs-primary);
   overflow-x: hidden;
+  color: var(--clr-primary-900);
 }
 
 /*  Button Styles  */
 
 .btn {
-  border: $border-style-transparent;
+  border: var(--border-style-transparent);
   text-decoration: none;
-  color: $clr-primary-900;
+  color: var(--clr-primary-900);
   display: block;
   overflow: hidden;
   height: 50%;
   padding: 0.5rem 1rem;
   display: flex;
   gap: 1rem;
-  transition: $transition-short;
+  transition: var(--transition-short);
 
   .btn-text {
     display: grid;
     gap: 1rem;
-    transition: $transition-short;
+    transition: var(--transition-short);
     flex-shrink: 0;
   }
 
   &:hover > .btn-text {
-    transform: translateY(calc(-2.4 * $fs-primary));
+    transform: translateY(calc(-2.4 * var(--fs-primary)));
   }
 
   &:focus {
@@ -78,27 +84,28 @@ body {
 }
 
 .btn-outline {
-  border-radius: $border-radius-pill;
-  border: $border-style-1;
+  border-radius: var(--border-radius-pill);
+  border: var(--border-style-1);
 
   &:hover {
-    background-color: $clr-primary-900;
+    background-color: var(--clr-primary-900);
   }
 
   &:hover > .btn-text {
-    color: $clr-secondary-100;
+    color: var(--clr-secondary-100);
   }
 }
 
 .btn-filled-icon {
-  border-radius: $border-radius-pill;
-  border: $border-style-1;
-  background-color: $clr-primary-900;
-  color: $clr-secondary-100;
+  border-radius: var(--border-radius-pill);
+  border: var(--border-style-1);
+  background-color: var(--clr-primary-900);
+  color: var(--clr-secondary-100);
 
   .btn-icon {
-    transition: $transition-short;
+    transition: var(--transition-short);
     transition-delay: 80ms;
+    mix-blend-mode: difference;
   }
 
   &:hover > .btn-icon {
@@ -118,8 +125,8 @@ header {
   .primary-navigation {
     --nav-spacing: 2rem;
 
-    height: $header-height;
-    background-color: $clr-secondary-100;
+    height: var(--header-height);
+    background-color: var(--clr-secondary-100);
     // border: 1px solid black;
     z-index: 100;
   }
@@ -130,7 +137,7 @@ header {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding-inline: $padding-inline-1;
+    padding-inline: var(--padding-inline-1);
     height: 100%;
   }
 
@@ -149,12 +156,12 @@ header {
     justify-content: center;
     width: 40px;
     gap: 0.6rem;
-    transition: $transition-extrashort;
+    transition: var(--transition-extrashort);
 
     .hamburger__line {
       width: 100%;
       height: 0.15rem;
-      background-color: $clr-primary-900;
+      background-color: var(--clr-primary-900);
     }
 
     &:hover {
@@ -177,16 +184,16 @@ header {
       top: 0;
       left: 0;
       right: 0;
-      margin-top: calc($padding-inline-1 + $header-height);
-      margin-inline: $padding-inline-1;
-      padding-inline: calc($padding-inline-1 * 0.5);
+      margin-top: calc(var(--padding-inline-1) + var(--header-height));
+      margin-inline: var(--padding-inline-1);
+      padding-inline: calc(var(--padding-inline-1) * 0.5);
       background-color: rgb(255 255 255 / 0.9);
       backdrop-filter: blur(10px);
       transform: translateY(-150%);
-      transition: $transition-medium;
+      transition: var(--transition-medium);
       z-index: -1;
       // transition-delay: 300ms;
-      border-radius: $border-radius-primary;
+      border-radius: var(--border-radius-primary);
       border: 2px solid rgb(0 0 0 / 0.1);
 
       ul {
@@ -211,7 +218,7 @@ header {
           display: block;
           width: 100%;
           height: 0.1rem;
-          background-color: $clr-primary-900;
+          background-color: var(--clr-primary-900);
           // bottom: 0;
           left: 0;
           opacity: 0.2;
@@ -243,12 +250,12 @@ header {
       }
 
       a {
-        font-size: $fs-secondary;
+        font-size: var(--fs-secondary);
         // text-transform: uppercase;
         font-weight: 300;
         text-decoration: none;
-        color: $clr-primary-900;
-        // color: $clr-secondary-100;
+        color: var(--clr-primary-900);
+        // color: var(--clr-secondary-100);
       }
 
       .btn:hover > .btn-text {
@@ -256,8 +263,8 @@ header {
       }
 
       .btn-filled-icon {
-        background-color: $clr-secondary-100;
-        color: $clr-primary-900;
+        background-color: var(--clr-secondary-100);
+        color: var(--clr-primary-900);
         border: none;
       }
     }
@@ -267,7 +274,7 @@ header {
 
       li {
         opacity: 1;
-        transition: $transition-medium;
+        transition: var(--transition-medium);
         transition-delay: 0ms;
       }
     }
@@ -278,13 +285,13 @@ header {
 
 main {
   section:not(.slider-section) {
-    padding-inline: $padding-inline-1;
+    padding-inline: var(--padding-inline-1);
     max-width: $break-width-1;
     margin: 0 auto;
   }
 
   .hero-section {
-    padding-block-start: calc(5rem + $header-height);
+    padding-block-start: calc(5rem + var(--header-height));
 
     h1 {
       text-transform: uppercase;
@@ -303,7 +310,7 @@ main {
     }
 
     .subtitle {
-      font-size: $fs-secondary;
+      font-size: var(--fs-secondary);
       max-width: 30ch;
     }
 
@@ -337,7 +344,7 @@ main {
 
   @media (max-width: $break-width-mobile) {
     .hero-section {
-      padding-block-start: calc(3rem + $header-height);
+      padding-block-start: calc(3rem + var(--header-height));
 
       .hero-section__content {
         margin-left: 0%;
@@ -372,7 +379,7 @@ main {
   .parallax {
     margin-top: 5rem;
     position: relative;
-    border-radius: $border-radius-primary;
+    border-radius: var(--border-radius-primary);
     overflow: hidden;
     margin-bottom: 5rem;
 
@@ -403,12 +410,11 @@ main {
 
     .slide {
       width: 40rem;
-      background-color: #000;
       border-radius: 15px;
       height: 25rem;
-      color: $clr-secondary-100;
+      color: var(--clr-secondary-100-fixed);
       text-align: right;
-      padding-inline: calc($padding-inline-1 * 2);
+      padding-inline: calc(var(--padding-inline-1) * 2);
 
       display: grid;
       justify-content: end;
@@ -417,8 +423,9 @@ main {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
+      z-index: 1;
 
-      transition: $transition-medium;
+      transition: var(--transition-medium);
 
       .slide__content {
         display: flex;
@@ -430,7 +437,7 @@ main {
       }
 
       h3 {
-        transition: $transition-medium;
+        transition: var(--transition-medium);
         font-size: 1rem;
         line-height: 1.15;
       }
@@ -441,9 +448,9 @@ main {
       }
 
       .btn-filled-icon {
-        // transition: $transition-medium;
-        background-color: $clr-secondary-100;
-        color: $clr-primary-900;
+        // transition: var(--transition-medium);
+        background-color: var(--clr-secondary-100-fixed);
+        color: var(--clr-primary-900-fixed);
         border: none;
       }
     }
@@ -453,12 +460,12 @@ main {
       height: 32rem;
 
       h3 {
-        font-size: $fs-tertiary;
+        font-size: var(--fs-tertiary);
       }
 
       .button-container {
         opacity: 1;
-        z-index: 25;
+        z-index: 3;
       }
     }
   }
@@ -473,12 +480,12 @@ main {
 
     .active-slide,
     .slide {
-      margin-inline: $padding-inline-1;
-      max-width: calc(100vw - 4 * $padding-inline-1);
+      margin-inline: var(--padding-inline-1);
+      max-width: calc(100vw - 4 * var(--padding-inline-1));
       height: 32rem !important;
 
       h3 {
-        font-size: $fs-tertiary !important;
+        font-size: var(--fs-tertiary) !important;
       }
 
       .button-container {
@@ -493,7 +500,7 @@ main {
       position: fixed;
 
       transform: translateY(-50%) translateX(-50%);
-      z-index: 1;
+      z-index: 2;
 
       width: 100px;
       aspect-ratio: 1;
@@ -509,7 +516,7 @@ main {
       background-repeat: no-repeat;
       background-position: 50% 50%;
       background-size: 50%;
-      background-color: $clr-secondary-100;
+      background-color: var(--clr-secondary-100-fixed);
     }
 
     .next-slide-btn {
@@ -522,6 +529,116 @@ main {
 
     .active {
       opacity: 1;
+    }
+  }
+
+  .house-section {
+    margin-top: 5rem;
+    padding-bottom: 100rem;
+
+    h2 {
+      margin-left: 10%;
+      font-size: var(--fs-title);
+      text-transform: uppercase;
+      padding-bottom: 5rem;
+    }
+
+    .house {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+
+    .house__3d {
+      position: relative;
+
+      .background {
+        background-color: var(--clr-accent-500);
+        width: 50%;
+        height: 100%;
+        border-radius: var(--border-radius-primary);
+      }
+
+      canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      // #bg {
+      //   mix-blend-mode: multiply;
+      // }
+    }
+
+    .house__details {
+      position: relative;
+      padding-inline: 1rem;
+
+      h3,
+      h4 {
+        text-transform: uppercase;
+        line-height: 1.1;
+      }
+
+      h3 {
+        font-size: calc(var(--fs-tertiary) + 1rem);
+        padding-bottom: 1rem;
+      }
+
+      h4 {
+        font-size: calc(var(--fs-secondary) + 0.3rem);
+        padding-block: 2rem 1rem;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 1px;
+          background-color: var(--clr-primary-900);
+          opacity: 0.1;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0.1rem;
+        height: calc(100% - 40px);
+        left: 0;
+        top: 0;
+        background-color: var(--clr-primary-900);
+      }
+    }
+  }
+
+  @media (max-width: $break-width-tablet) {
+    .house-section {
+      .house {
+        grid-template-columns: 1fr;
+      }
+
+      .house__details {
+        &::before {
+          display: none;
+        }
+      }
     }
   }
 }
@@ -543,5 +660,13 @@ main {
 
   .desktop {
     display: block;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clr-primary-900: #faf6f6;
+    --clr-secondary-100: #070a0e;
+    // --clr-accent-500: #394b74;
   }
 }

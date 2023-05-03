@@ -5,12 +5,10 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/reset.css" />
-    <link
-      rel="stylesheet"
-      href="//unpkg.com/a11y-slider@latest/dist/a11y-slider.css"
-    />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Immo</title>
+
+    <script defer type="module" src="/main.js"></script>
   </head>
   <body class="home">
     <!-- Header -->
@@ -181,7 +179,7 @@
               background-image: radial-gradient(
                   circle at 100% 100%,
                   rgb(0 0 0 / 0.6),
-                  rgb(0 0 0 / 0) 50%
+                  rgb(0 0 0 / 0) 75%
                 ),
                 url(./public/images/image3.png);
             "
@@ -200,7 +198,7 @@
                   </div>
                   <img
                     class="btn-icon"
-                    src="./public/icons/arrow-right-black.svg"
+                    src="./public/icons/arrow-right.svg"
                     alt=""
                   />
                 </a>
@@ -215,7 +213,7 @@
               background-image: radial-gradient(
                   circle at 100% 100%,
                   rgb(0 0 0 / 0.6),
-                  rgb(0 0 0 / 0) 50%
+                  rgb(0 0 0 / 0) 75%
                 ),
                 url(./public/images/image4.png);
             "
@@ -234,7 +232,7 @@
                   </div>
                   <img
                     class="btn-icon"
-                    src="./public/icons/arrow-right-black.svg"
+                    src="./public/icons/arrow-right.svg"
                     alt=""
                   />
                 </a>
@@ -249,7 +247,7 @@
               background-image: radial-gradient(
                   circle at 100% 100%,
                   rgb(0 0 0 / 0.6),
-                  rgb(0 0 0 / 0) 50%
+                  rgb(0 0 0 / 0) 75%
                 ),
                 url(./public/images/image5.jpg);
             "
@@ -268,7 +266,7 @@
                   </div>
                   <img
                     class="btn-icon"
-                    src="./public/icons/arrow-right-black.svg"
+                    src="./public/icons/arrow-right.svg"
                     alt=""
                   />
                 </a>
@@ -283,7 +281,7 @@
               background-image: radial-gradient(
                   circle at 100% 100%,
                   rgb(0 0 0 / 0.6),
-                  rgb(0 0 0 / 0) 50%
+                  rgb(0 0 0 / 0) 75%
                 ),
                 url(./public/images/image6.jpg);
             "
@@ -302,7 +300,7 @@
                   </div>
                   <img
                     class="btn-icon"
-                    src="./public/icons/arrow-right-black.svg"
+                    src="./public/icons/arrow-right.svg"
                     alt=""
                   />
                 </a>
@@ -310,6 +308,53 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <section class="house-section">
+        <h2>Baubestandteile</h2>
+
+        <article class="house left">
+          <div class="house__3d">
+            <canvas id="bg"></canvas>
+            <div class="background"></div>
+          </div>
+          <div class="house__details">
+            <h3>Wohnung 1</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+              laudantium odit reiciendis pariatur, quos corporis ea illum
+              quidem! Eveniet, quo?
+            </p>
+            <h4>Details</h4>
+            <ul>
+              <li><span>Wohnfläche:</span> <span>160m²</span></li>
+              <li><span>Garten:</span> <span>120m²</span></li>
+              <li><span>Balkon:</span> <span>130m²</span></li>
+              <li><span>Zimmeranzahl:</span> <span>4</span></li>
+              <li><span>Garagenplätze:</span> <span>2</span></li>
+            </ul>
+            <div class="button-container">
+              <a class="btn btn-outline" href="#">
+                <div class="btn-text">
+                  <div>Galerie</div>
+                  <div>Galerie</div>
+                </div>
+              </a>
+
+              <a class="btn btn-filled-icon" href="#">
+                <div class="btn-text">
+                  <div>Reservieren</div>
+                  <div>Reservieren</div>
+                </div>
+                <img
+                  class="btn-icon"
+                  src="./public/icons/arrow-right.svg"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+        </article>
       </section>
     </main>
 
@@ -448,9 +493,9 @@
         // console.log("WindowHeight" + window.pageYOffset);
 
         if (y > relativeTop && y < relativeBottom) {
-          console.log("in");
+          // console.log("in");
         } else {
-          console.log("out");
+          // console.log("out");
           prev.style.top = 0;
           next.style.top = 0;
           prev.classList.remove("active");
@@ -493,7 +538,7 @@
         if (window.innerWidth <= tabletBreakWidth) {
           slides.forEach((slide) => {
             slide.classList.add("active-slide");
-            console.log("active-slide");
+            // console.log("active-slide");
           });
           next.style.display = "none";
           prev.style.display = "none";
@@ -538,5 +583,7 @@
         // console.log(offset + sideMargin - slideOffset);
       }
     </script>
+
+    <!-- Three.js -->
   </body>
 </html>
