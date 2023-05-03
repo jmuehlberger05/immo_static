@@ -363,7 +363,7 @@ main {
     height: 32rem;
     direction: ltr;
 
-    width: min-content;
+    // width: min-content;
     overflow-x: hidden;
 
     .slide {
@@ -429,7 +429,14 @@ main {
   }
 
   @media (max-width: $break-width-mobile) {
+    .slider {
+      overflow-x: auto;
+    }
     .slide {
+      width: 100vw;
+    }
+
+    .active-slide {
       width: 100vw;
     }
   }
