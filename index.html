@@ -251,7 +251,7 @@
                   rgb(0 0 0 / 0.6),
                   rgb(0 0 0 / 0) 50%
                 ),
-                url(./public/images/image4.png);
+                url(./public/images/image5.jpg);
             "
           >
             <div class="slide__content">
@@ -275,8 +275,40 @@
               </div>
             </div>
           </div>
-          <!-- <div class="slide"></div>
-          <div class="slide"></div> -->
+
+          <!-- Fourth Slide -->
+          <div
+            class="slide"
+            style="
+              background-image: radial-gradient(
+                  circle at 100% 100%,
+                  rgb(0 0 0 / 0.6),
+                  rgb(0 0 0 / 0) 50%
+                ),
+                url(./public/images/image6.jpg);
+            "
+          >
+            <div class="slide__content">
+              <h3>
+                1200m²<br />
+                Handel- &<br />
+                Gastrofläche
+              </h3>
+              <div class="button-container">
+                <a class="btn btn-filled-icon" href="#">
+                  <div class="btn-text">
+                    <div>Mehr zum Projekt</div>
+                    <div>Mehr zum Projekt</div>
+                  </div>
+                  <img
+                    class="btn-icon"
+                    src="./public/icons/arrow-right-black.svg"
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -369,39 +401,15 @@
       });
     </script>
 
-    <!-- Slider -->
-    <script src="//unpkg.com/a11y-slider@latest/dist/a11y-slider.js"></script>
-    <script>
-      // const slider = new A11YSlider(document.querySelector(".slider"), {
-      //   slidesToShow: 1,
-      //   arrows: true, // arrows enabled 767px and down
-      //   dots: false,
-      //   responsive: {
-      //     768: {
-      //       slidesToShow: 2,
-      //       arrows: false,
-      //     },
-      //     960: {
-      //       disable: true, // slider disabled 960px to 1279px
-      //     },
-      //     1280: {
-      //       disable: false,
-      //       slidesToShow: 3,
-      //       dots: true, // dots enabled 1280px and up
-      //       arrows: true,
-      //     },
-      //   },
-      // });
-    </script>
     <!-- Mousetracker -->
     <script>
       var container = document.querySelector(".slider");
       var prev = document.querySelector(".prev-slide-btn");
       var next = document.querySelector(".next-slide-btn");
 
-      container.onmousemove = (event) => moveCursor(event, true);
-      prev.onmousemove = (event) => moveCursor(event, false);
-      next.onmousemove = (event) => moveCursor(event, false);
+      window.onmousemove = (event) => moveCursor(event);
+      prev.onmousemove = (event) => moveCursor(event);
+      next.onmousemove = (event) => moveCursor(event);
 
       const moveCursor = (event, border) => {
         let windowWidth = window.innerWidth;
@@ -409,38 +417,53 @@
         var x = event.clientX;
         var y = event.clientY;
 
+        let windowScrollTop = window.pageYOffset;
+        let sliderOffset = container.offsetTop;
+        let sliderHeight = container.offsetHeight;
+
+        let relativeTop = sliderOffset - windowScrollTop;
+        // console.log("top: " + relativeTop);
+
+        let relativeBottom = relativeTop + sliderHeight;
+        // console.log("bottom: " + relativeBottom);
+
+        // console.log("Y: " + y);
+
         if (windowWidth / 2 < x) {
           console.log("next");
           next.style.top = `${y}px`;
           next.style.left = `${x}px`;
-          // next.style.transform = `translate3d(${x}px, ${y}px, 0)`;
           next.classList.add("active");
           prev.classList.remove("active");
         } else {
           console.log("prev");
-          // prev.style.transform = `translate3d(${x}px, ${y}px, 0)`;
           prev.style.top = `${y}px`;
           prev.style.left = `${x}px`;
           prev.classList.add("active");
           next.classList.remove("active");
         }
 
-        // console.log(x, y);
+        // console.log("Height" + container.offsetHeight);
+        // console.log("Top" + container.offsetTop);
+        // console.log("WindowHeight" + window.pageYOffset);
 
-        if (border) {
-          container.onmouseleave = () => {
-            console.log("border");
-            prev.classList.remove("active");
-            next.classList.remove("active");
-          };
+        if (y > relativeTop && y < relativeBottom) {
+          console.log("in");
+        } else {
+          console.log("out");
+          prev.style.top = 0;
+          next.style.top = 0;
+          prev.classList.remove("active");
+          next.classList.remove("active");
         }
       };
     </script>
 
+    <!-- Slider Logic -->
     <script>
       let index = 0;
-      const slides = document.querySelectorAll(".slide");
       const slider = document.querySelector(".slider");
+      const slides = slider.querySelectorAll(".slide");
 
       const breakWidth = 1600;
       const mobileBreakWidth = 640;
@@ -450,6 +473,9 @@
 
       window.onresize = () => handleResize();
 
+      let slideOffset = 0;
+
+      // set margin of first slide
       const handleResize = () => {
         if (window.innerWidth > breakWidth) {
           sideMargin = (window.innerWidth - breakWidth) / 2;
@@ -462,13 +488,12 @@
           slides[0].style.marginLeft = `${offset + sideMargin}px`;
         }
 
-        // slider.style.marginLeft = `${sideMargin}px`;
+        updateSlider();
       };
 
       handleResize();
 
-      let slideOffset = 0;
-
+      // onclick function of buttons
       function increaseIndex() {
         if (index < slides.length - 1) {
           index++;
@@ -483,6 +508,7 @@
         }
       }
 
+      // update slider
       function updateSlider() {
         slides.forEach((slide) => slide.classList.remove("active-slide"));
         slides[index].classList.add("active-slide");
@@ -490,8 +516,10 @@
 
         slideOffset = index * (640 + 32);
 
-        slides[0].style.marginLeft = `${offset + sideMargin - slideOffset}px`;
-        console.log(slideOffset);
+        slides.forEach(
+          (slide) => (slide.style.transform = `translateX(${-slideOffset}px)`)
+        );
+        console.log(offset + sideMargin - slideOffset);
       }
     </script>
   </body>

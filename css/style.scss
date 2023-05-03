@@ -349,73 +349,6 @@ main {
 
   .slider-section {
     margin-top: 2rem;
-  }
-
-  // .slider {
-  //   display: flex;
-  //   gap: 2rem;
-  //   margin-left: 10%;
-  // }
-
-  // .slider > * {
-  //   width: 100%;
-  //   flex: 0 0 auto;
-  // }
-
-  // .slide {
-  //   // overflow: hidden;
-  //   border-radius: $border-radius-primary;
-  //   height: 20rem;
-  //   background-color: $clr-accent-500;
-  // }
-
-  // .a11y-slider-next,
-  // .a11y-slider-prev {
-  //   position: absolute;
-  //   transform: translateY(-50%) translateX(-50%);
-  //   z-index: 10;
-  //   width: 100px;
-  //   aspect-ratio: 1;
-  //   border-radius: 50%;
-  //   opacity: 0;
-  //   background-repeat: no-repeat;
-  //   color: transparent;
-  //   background-position: 50% 50%;
-  //   background-size: 50%;
-  //   border: none;
-  //   background-color: $clr-secondary-100;
-  // }
-
-  // .a11y-slider-next {
-  //   background-image: url(../public/icons/arrow-right-black.svg);
-  // }
-
-  // .a11y-slider-prev {
-  //   background-image: url(../public/icons/arrow-left-black.svg);
-  // }
-
-  // .active {
-  //   opacity: 1;
-  // }
-
-  // .a11y-slider-dots {
-  //   display: flex;
-  //   margin-left: 10%;
-
-  //   & > * > button {
-  //     width: 40px;
-  //     height: 5px;
-  //     border-radius: $border-radius-pill;
-  //     background-color: $clr-primary-900;
-  //     border: none;
-  //     margin-right: 1rem;
-  //     border: none;
-  //     font-size: 0.1px;
-  //     cursor: pointer;
-  //   }
-  // }
-
-  .slider-section {
     margin-bottom: 10rem;
   }
 
@@ -458,9 +391,11 @@ main {
         gap: 1rem;
         width: fit-content;
         transform: translateY(15px);
+        z-index: 2;
       }
 
       h3 {
+        transition: $transition-medium;
         font-size: 1rem;
         line-height: 1.15;
       }
@@ -471,6 +406,7 @@ main {
       }
 
       .btn-filled-icon {
+        // transition: $transition-medium;
         background-color: $clr-secondary-100;
         color: $clr-primary-900;
         border: none;
@@ -504,7 +440,7 @@ main {
       position: fixed;
 
       transform: translateY(-50%) translateX(-50%);
-      z-index: 0;
+      z-index: 1;
 
       width: 100px;
       aspect-ratio: 1;
