@@ -179,6 +179,7 @@
       }
     </script>
 
+    <!-- Reveal H1 -->
     <script>
       const tl = gsap.timeline();
 
@@ -191,6 +192,20 @@
           amount: 0.3,
         },
       });
+
+      tl.from(
+        ".hero-section__content",
+        1,
+        {
+          ease: "power-ease-4",
+          delay: 0.5,
+          opacity: 0,
+          stagger: {
+            amount: 0.3,
+          },
+        },
+        "-=1"
+      );
     </script>
 
     <!-- Parallax -->
@@ -241,7 +256,7 @@
         },
       });
     </script>
-
+    <!-- Mousetracker -->
     <script>
       let windowWidth = window.innerWidth;
 
