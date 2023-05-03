@@ -247,6 +247,35 @@ main .slogan-section .slogan {
 main .slogan-section > * {
   margin-left: 10%;
 }
+@media (max-width: 40em) {
+  main .hero-section {
+    -webkit-padding-before: calc(3rem + 100px);
+            padding-block-start: calc(3rem + 100px);
+  }
+  main .hero-section .hero-section__content {
+    margin-left: 0%;
+    margin-top: 2rem;
+  }
+  main .hero-section h1 {
+    font-size: 9.44vw;
+  }
+  main .hero-section .parallax {
+    margin-top: 1rem;
+    height: 25rem;
+  }
+  main .hero-section .parallax .parallax__image {
+    margin-top: -2rem;
+    height: 120%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  main .slogan-section > * {
+    margin-left: 0%;
+  }
+  main .slogan-section .slogan {
+    font-size: 1.8rem;
+  }
+}
 main .parallax {
   margin-top: 5rem;
   position: relative;
@@ -322,15 +351,16 @@ main .slider .active-slide .button-container {
   opacity: 1;
   z-index: 25;
 }
-@media (max-width: 40em) {
+@media (max-width: 60em) {
   main .slider {
     overflow-x: auto;
-  }
-  main .slide {
-    width: 100vw;
+    gap: 0;
+    scroll-snap-align: start;
+    scroll-snap-type: x mandatory;
   }
   main .active-slide {
-    width: 100vw;
+    margin-inline: 1em;
+    max-width: calc(100vw - 4em);
   }
 }
 @media (min-width: 40em) {
@@ -359,35 +389,6 @@ main .slider .active-slide .button-container {
   }
   main .active {
     opacity: 1;
-  }
-}
-@media (max-width: 40em) {
-  main .hero-section {
-    -webkit-padding-before: calc(3rem + 100px);
-            padding-block-start: calc(3rem + 100px);
-  }
-  main .hero-section .hero-section__content {
-    margin-left: 0%;
-    margin-top: 2rem;
-  }
-  main .hero-section h1 {
-    font-size: 9.44vw;
-  }
-  main .hero-section .parallax {
-    margin-top: 1rem;
-    height: 25rem;
-  }
-  main .hero-section .parallax .parallax__image {
-    margin-top: -2rem;
-    height: 120%;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-  main .slogan-section > * {
-    margin-left: 0%;
-  }
-  main .slogan-section .slogan {
-    font-size: 1.8rem;
   }
 }
 
