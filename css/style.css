@@ -120,7 +120,7 @@ header .hamburger[data-active=true] .hamburger__line {
     position: fixed;
     inset: 0;
     padding-top: calc(2rem + 100px);
-    padding-inline: 1em;
+    padding-inline: 0.5em;
     background-color: #fff;
     transform: translateX(100%);
     transition: all 500ms cubic-bezier(0.11, 0.47, 0.31, 0.88);
@@ -138,26 +138,29 @@ header .hamburger[data-active=true] .hamburger__line {
     flex-direction: column;
   }
   header .mobile-navigation li {
-    height: 6rem;
+    height: 7.5rem;
     position: relative;
   }
   header .mobile-navigation li::after {
-    display: block;
+    display: grid;
     width: 100%;
     height: 100%;
     background-color: #000;
     position: absolute;
-    bottom: 0;
     left: 0;
   }
   header .mobile-navigation a {
     font-size: 2rem;
     text-transform: uppercase;
     text-decoration: none;
-    color: #000;
   }
   header .mobile-navigation .btn:hover > .btn-text {
-    transform: translateY(-4.4rem);
+    transform: translateY(-4rem);
+  }
+  header .mobile-navigation .btn-filled-icon {
+    background-color: #fff;
+    color: #000;
+    border: none;
   }
   header .active {
     transform: translateX(0);
@@ -225,6 +228,9 @@ main .parallax {
 main .parallax .parallax__image {
   transform: scale(1.05);
   width: 100%;
+}
+main .slider-section {
+  margin-top: 2rem;
 }
 main .slider {
   display: flex;

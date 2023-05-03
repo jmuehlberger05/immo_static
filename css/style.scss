@@ -172,7 +172,7 @@ header {
       position: fixed;
       inset: 0;
       padding-top: calc(2rem + $header-height);
-      padding-inline: calc($padding-inline-1 * 1);
+      padding-inline: calc($padding-inline-1 * 0.5);
       background-color: $clr-secondary-100;
       transform: translateX(100%);
       transition: $transition-short;
@@ -194,16 +194,15 @@ header {
       }
 
       li {
-        height: 6rem;
+        height: 7.5rem;
         position: relative;
 
         &::after {
-          display: block;
+          display: grid;
           width: 100%;
           height: 100%;
           background-color: $clr-primary-900;
           position: absolute;
-          bottom: 0;
           left: 0;
         }
       }
@@ -212,12 +211,18 @@ header {
         font-size: 2rem;
         text-transform: uppercase;
         text-decoration: none;
-        color: $clr-primary-900;
+        // color: $clr-primary-900;
         // color: $clr-secondary-100;
       }
 
       .btn:hover > .btn-text {
-        transform: translateY(calc(-2.2 * 2rem));
+        transform: translateY(calc(-2 * 2rem));
+      }
+
+      .btn-filled-icon {
+        background-color: $clr-secondary-100;
+        color: $clr-primary-900;
+        border: none;
       }
     }
 
@@ -302,6 +307,10 @@ main {
       transform: scale(1.05);
       width: 100%;
     }
+  }
+
+  .slider-section {
+    margin-top: 2rem;
   }
 
   .slider {

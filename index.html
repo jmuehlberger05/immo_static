@@ -28,7 +28,7 @@
                 <a class="btn btn-outline" href="./index.html">
                   <div class="btn-text">
                     <div>Home</div>
-                    <div>Home</div>
+                    <div aria-hidden="true">Home</div>
                   </div>
                 </a>
               </li>
@@ -73,35 +73,55 @@
             <nav class="mobile-navigation">
               <ul>
                 <li>
-                  <a class="btn" href="#">
+                  <a class="btn btn-filled-icon" href="#">
                     <div class="btn-text">
                       <div>Home</div>
                       <div>Home</div>
                     </div>
+                    <img
+                      class="btn-icon"
+                      src="./public/icons/arrow-right-black.svg"
+                      alt=""
+                    />
                   </a>
                 </li>
                 <li>
-                  <a class="btn" href="#">
+                  <a class="btn btn-filled-icon" href="#">
                     <div class="btn-text">
                       <div>About</div>
                       <div>About</div>
                     </div>
+                    <img
+                      class="btn-icon"
+                      src="./public/icons/arrow-right-black.svg"
+                      alt=""
+                    />
                   </a>
                 </li>
                 <li>
-                  <a class="btn" href="#">
+                  <a class="btn btn-filled-icon" href="#">
                     <div class="btn-text">
                       <div>Contact</div>
                       <div>Contact</div>
                     </div>
+                    <img
+                      class="btn-icon"
+                      src="./public/icons/arrow-right-black.svg"
+                      alt=""
+                    />
                   </a>
                 </li>
                 <li>
-                  <a class="btn" href="./about.html">
+                  <a class="btn btn-filled-icon" href="#">
                     <div class="btn-text">
                       <div>Get in Touch</div>
                       <div>Get in Touch</div>
                     </div>
+                    <img
+                      class="btn-icon"
+                      src="./public/icons/arrow-right-black.svg"
+                      alt=""
+                    />
                   </a>
                 </li>
               </ul>
@@ -182,7 +202,8 @@
         </div>
       </section>
 
-      <section class="slider-section">
+      <!-- Slider Section -->
+      <!-- <section class="slider-section">
         <div class="slider">
           <div class="slide">a</div>
           <div class="slide">b</div>
@@ -190,7 +211,7 @@
           <div class="slide">d</div>
           <div class="slide">e</div>
         </div>
-      </section>
+      </section> -->
     </main>
 
     <!-- footer -->
@@ -222,11 +243,21 @@
     <script>
       const tl = gsap.timeline();
 
+      let skew = 8;
+      let delay = 0.5;
+      let duration = 1;
+
+      if (window.innerWidth < 640) {
+        skew = 30;
+        delay = 0.8;
+        duration = 1.5;
+      }
+
       tl.from(".line span", 1, {
         y: 200,
         ease: "power-ease-4",
         delay: 0,
-        skewY: 8,
+        skewY: skew,
         stagger: {
           amount: 0.3,
         },
@@ -234,10 +265,10 @@
 
       tl.from(
         ".hero-section__content",
-        1,
+        duration,
         {
           ease: "power-ease-4",
-          delay: 0.5,
+          delay: delay,
           opacity: 0,
           stagger: {
             amount: 0.3,
