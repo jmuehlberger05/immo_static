@@ -63,7 +63,6 @@ header .hamburger[data-active=true] .hamburger__line {
   height: 0.05rem;
   transition-delay: 128ms;
 }
-
 /*  Button Styles  */
 .btn {
   border: 2px solid transparent;
@@ -131,6 +130,14 @@ main .hero-section h1 {
   font-size: min(10rem, 9.9vw);
   line-height: 1.1;
 }
+main .hero-section h1 .line {
+  position: relative;
+  height: min(10rem, 9.9vw);
+  overflow: hidden;
+}
+main .hero-section h1 .line span {
+  position: absolute;
+}
 main .hero-section .subtitle {
   font-size: 1.2rem;
   max-width: 30ch;
@@ -168,6 +175,44 @@ main .parallax {
 main .parallax .parallax__image {
   transform: scale(1.05);
   width: 100%;
+}
+main .slider {
+  display: flex;
+  gap: 2rem;
+}
+main .slider > * {
+  width: 100%;
+  flex: 0 0 auto;
+}
+main .slide {
+  border-radius: 15px;
+  height: 20rem;
+  background-color: #5f8cad;
+}
+main .a11y-slider-next,
+main .a11y-slider-prev {
+  position: absolute;
+  transform: translateY(-50%) translateX(-50%);
+  z-index: 10;
+  width: 100px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0;
+  background-repeat: no-repeat;
+  color: transparent;
+  background-position: 50% 50%;
+  background-size: 50%;
+  border: none;
+  background-color: #fff;
+}
+main .a11y-slider-next {
+  background-image: url(../public/icons/arrow-right-black.svg);
+}
+main .a11y-slider-prev {
+  background-image: url(../public/icons/arrow-left-black.svg);
+}
+main .active {
+  opacity: 1;
 }
 @media (max-width: 40em) {
   main .hero-section {

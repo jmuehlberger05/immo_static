@@ -3,7 +3,7 @@ $clr-secondary-100: #fff;
 
 $clr-accent-500: #5f8cad;
 
-$break-widht-1: 100em;
+$break-width-1: 100em;
 $break-width-mobile: 40em;
 
 $padding-inline-1: 1em;
@@ -61,7 +61,7 @@ header {
   }
 
   .primary-navigation__wrapper {
-    max-width: $break-widht-1;
+    max-width: $break-width-1;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,6 +104,11 @@ header {
         height: 0.05rem;
         transition-delay: 128ms;
       }
+    }
+  }
+
+  @media (max-width: $break-width-mobile) {
+    .mobile-menu {
     }
   }
 }
@@ -172,7 +177,7 @@ header {
 main {
   section {
     padding-inline: $padding-inline-1;
-    max-width: $break-widht-1;
+    max-width: $break-width-1;
     margin: 0 auto;
   }
 
@@ -185,6 +190,16 @@ main {
       text-transform: uppercase;
       font-size: min(10rem, 9.9vw);
       line-height: 1.1;
+
+      .line {
+        position: relative;
+        height: min(10rem, 9.9vw);
+        overflow: hidden;
+
+        span {
+          position: absolute;
+        }
+      }
     }
 
     .subtitle {
@@ -233,6 +248,56 @@ main {
       width: 100%;
     }
   }
+
+  .slider {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .slider > * {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .slide {
+    // overflow: hidden;
+    border-radius: $border-radius-primary;
+    height: 20rem;
+    background-color: $clr-accent-500;
+  }
+
+  .a11y-slider-next,
+  .a11y-slider-prev {
+    position: absolute;
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 10;
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    opacity: 0;
+    background-repeat: no-repeat;
+    color: transparent;
+    background-position: 50% 50%;
+    background-size: 50%;
+    border: none;
+    background-color: $clr-secondary-100;
+  }
+
+  .a11y-slider-next {
+    background-image: url(../public/icons/arrow-right-black.svg);
+  }
+
+  .a11y-slider-prev {
+    background-image: url(../public/icons/arrow-left-black.svg);
+  }
+
+  .active {
+    opacity: 1;
+  }
+
+  // .a11y-slider-active {
+  //   height: 30rem;
+  // }
 
   @media (max-width: $break-width-mobile) {
     .hero-section {

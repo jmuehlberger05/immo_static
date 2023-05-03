@@ -5,8 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="//unpkg.com/a11y-slider@latest/dist/a11y-slider.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Vite App</title>
+    <title>Immo</title>
   </head>
   <body class="home">
     <!-- Header -->
@@ -65,6 +69,7 @@
               <div class="hamburger__line"></div>
               <div class="hamburger__line"></div>
             </button>
+            <nav></nav>
           </div>
         </div>
       </nav>
@@ -75,7 +80,10 @@
       <!-- Hero Section -->
       <section class="hero-section">
         <!-- H1 -->
-        <h1>Wohnbauprojekt Pernau</h1>
+        <h1>
+          <div class="line"><span>Wohnbauprojekt</span></div>
+          <div class="line"><span>Pernau</span></div>
+        </h1>
 
         <div class="hero-section__content">
           <!-- Subtitle -->
@@ -137,6 +145,16 @@
           </a>
         </div>
       </section>
+
+      <section class="slider-section">
+        <div class="slider">
+          <div class="slide">a</div>
+          <div class="slide">b</div>
+          <div class="slide">c</div>
+          <div class="slide">d</div>
+          <div class="slide">e</div>
+        </div>
+      </section>
     </main>
 
     <!-- footer -->
@@ -160,6 +178,21 @@
         }
       }
     </script>
+
+    <script>
+      const tl = gsap.timeline();
+
+      tl.from(".line span", 1, {
+        y: 200,
+        ease: "power-ease-4",
+        delay: 0,
+        skewY: 8,
+        stagger: {
+          amount: 0.3,
+        },
+      });
+    </script>
+
     <!-- Parallax -->
     <script>
       gsap.registerPlugin(ScrollTrigger);
@@ -182,6 +215,70 @@
           ease: "none",
         });
       });
+    </script>
+
+    <!-- Slider -->
+    <script src="//unpkg.com/a11y-slider@latest/dist/a11y-slider.js"></script>
+    <script>
+      const slider = new A11YSlider(document.querySelector(".slider"), {
+        slidesToShow: 1,
+        arrows: true, // arrows enabled 767px and down
+        dots: false,
+        responsive: {
+          768: {
+            slidesToShow: 2,
+            arrows: false,
+          },
+          960: {
+            disable: true, // slider disabled 960px to 1279px
+          },
+          1280: {
+            disable: false,
+            slidesToShow: 3,
+            dots: true, // dots enabled 1280px and up
+            arrows: true,
+          },
+        },
+      });
+    </script>
+
+    <script>
+      let windowWidth = window.innerWidth;
+
+      var container = document.querySelector(".slider");
+      var prev = document.querySelector(".a11y-slider-prev");
+      var next = document.querySelector(".a11y-slider-next");
+
+      container.onmousemove = (event) => moveCursor(event);
+      prev.onmousemove = (event) => moveCursor(event);
+      next.onmousemove = (event) => moveCursor(event);
+
+      const moveCursor = (event) => {
+        var x = event.clientX;
+        var y = event.clientY;
+        if (windowWidth / 2 < x) {
+          console.log("next");
+          next.style.transform = `translate3d(${x - container.offsetLeft}px, ${
+            y - 420
+          }px, 0)`;
+          next.classList.add("active");
+          prev.classList.remove("active");
+        } else {
+          console.log("prev");
+          prev.style.transform = `translate3d(${x - container.offsetLeft}px, ${
+            y - 420
+          }px, 0)`;
+          prev.classList.add("active");
+          next.classList.remove("active");
+        }
+
+        console.log(windowWidth, container.offsetLeft);
+
+        container.onmouseleave = () => {
+          prev.classList.remove("active");
+          next.classList.remove("active");
+        };
+      };
     </script>
   </body>
 </html>
