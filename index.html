@@ -69,7 +69,43 @@
               <div class="hamburger__line"></div>
               <div class="hamburger__line"></div>
             </button>
-            <nav></nav>
+            <span class="mobile-navigation__overlay"></span>
+            <nav class="mobile-navigation">
+              <ul>
+                <li>
+                  <a class="btn" href="#">
+                    <div class="btn-text">
+                      <div>Home</div>
+                      <div>Home</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="btn" href="#">
+                    <div class="btn-text">
+                      <div>About</div>
+                      <div>About</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="btn" href="#">
+                    <div class="btn-text">
+                      <div>Contact</div>
+                      <div>Contact</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="btn" href="./about.html">
+                    <div class="btn-text">
+                      <div>Get in Touch</div>
+                      <div>Get in Touch</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </nav>
@@ -170,11 +206,14 @@
     <script>
       function toggleNav() {
         const hamburger = document.querySelector(".hamburger");
+        const mobileNav = document.querySelector(".mobile-navigation");
 
         if (hamburger.dataset.active === "true") {
           hamburger.dataset.active = "false";
+          mobileNav.classList.remove("active");
         } else {
           hamburger.dataset.active = "true";
+          mobileNav.classList.add("active");
         }
       }
     </script>
