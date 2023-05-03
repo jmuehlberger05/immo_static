@@ -157,15 +157,128 @@
       </section>
 
       <!-- Slider Section -->
-      <!-- <section class="slider-section">
+      <section class="slider-section">
+        <button
+          data-active="true"
+          class="next-slide-btn"
+          onclick="increaseIndex()"
+        >
+          Next Slide
+        </button>
+        <button
+          data-active="true"
+          class="prev-slide-btn"
+          onclick="decreaseIndex()"
+        >
+          Previous Slide
+        </button>
+
         <div class="slider">
-          <div class="slide">a</div>
-          <div class="slide">b</div>
-          <div class="slide">c</div>
-          <div class="slide">d</div>
-          <div class="slide">e</div>
+          <!-- first Slide -->
+          <div
+            class="slide active-slide"
+            style="
+              background-image: radial-gradient(
+                  circle at 100% 100%,
+                  rgb(0 0 0 / 0.6),
+                  rgb(0 0 0 / 0) 50%
+                ),
+                url(./public/images/image3.png);
+            "
+          >
+            <div class="slide__content">
+              <h3>
+                1200m²<br />
+                Handel- &<br />
+                Gastrofläche
+              </h3>
+              <div class="button-container">
+                <a class="btn btn-filled-icon" href="#">
+                  <div class="btn-text">
+                    <div>Mehr zum Projekt</div>
+                    <div>Mehr zum Projekt</div>
+                  </div>
+                  <img
+                    class="btn-icon"
+                    src="./public/icons/arrow-right-black.svg"
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Slide -->
+          <div
+            class="slide"
+            style="
+              background-image: radial-gradient(
+                  circle at 100% 100%,
+                  rgb(0 0 0 / 0.6),
+                  rgb(0 0 0 / 0) 50%
+                ),
+                url(./public/images/image4.png);
+            "
+          >
+            <div class="slide__content">
+              <h3>
+                1200m²<br />
+                Handel- &<br />
+                Gastrofläche
+              </h3>
+              <div class="button-container">
+                <a class="btn btn-filled-icon" href="#">
+                  <div class="btn-text">
+                    <div>Mehr zum Projekt</div>
+                    <div>Mehr zum Projekt</div>
+                  </div>
+                  <img
+                    class="btn-icon"
+                    src="./public/icons/arrow-right-black.svg"
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Third Slide -->
+          <div
+            class="slide"
+            style="
+              background-image: radial-gradient(
+                  circle at 100% 100%,
+                  rgb(0 0 0 / 0.6),
+                  rgb(0 0 0 / 0) 50%
+                ),
+                url(./public/images/image4.png);
+            "
+          >
+            <div class="slide__content">
+              <h3>
+                1200m²<br />
+                Handel- &<br />
+                Gastrofläche
+              </h3>
+              <div class="button-container">
+                <a class="btn btn-filled-icon" href="#">
+                  <div class="btn-text">
+                    <div>Mehr zum Projekt</div>
+                    <div>Mehr zum Projekt</div>
+                  </div>
+                  <img
+                    class="btn-icon"
+                    src="./public/icons/arrow-right-black.svg"
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="slide"></div>
+          <div class="slide"></div> -->
         </div>
-      </section> -->
+      </section>
     </main>
 
     <!-- footer -->
@@ -259,65 +372,127 @@
     <!-- Slider -->
     <script src="//unpkg.com/a11y-slider@latest/dist/a11y-slider.js"></script>
     <script>
-      const slider = new A11YSlider(document.querySelector(".slider"), {
-        slidesToShow: 1,
-        arrows: true, // arrows enabled 767px and down
-        dots: false,
-        responsive: {
-          768: {
-            slidesToShow: 2,
-            arrows: false,
-          },
-          960: {
-            disable: true, // slider disabled 960px to 1279px
-          },
-          1280: {
-            disable: false,
-            slidesToShow: 3,
-            dots: true, // dots enabled 1280px and up
-            arrows: true,
-          },
-        },
-      });
+      // const slider = new A11YSlider(document.querySelector(".slider"), {
+      //   slidesToShow: 1,
+      //   arrows: true, // arrows enabled 767px and down
+      //   dots: false,
+      //   responsive: {
+      //     768: {
+      //       slidesToShow: 2,
+      //       arrows: false,
+      //     },
+      //     960: {
+      //       disable: true, // slider disabled 960px to 1279px
+      //     },
+      //     1280: {
+      //       disable: false,
+      //       slidesToShow: 3,
+      //       dots: true, // dots enabled 1280px and up
+      //       arrows: true,
+      //     },
+      //   },
+      // });
     </script>
     <!-- Mousetracker -->
     <script>
-      let windowWidth = window.innerWidth;
-
       var container = document.querySelector(".slider");
-      var prev = document.querySelector(".a11y-slider-prev");
-      var next = document.querySelector(".a11y-slider-next");
+      var prev = document.querySelector(".prev-slide-btn");
+      var next = document.querySelector(".next-slide-btn");
 
-      container.onmousemove = (event) => moveCursor(event);
-      prev.onmousemove = (event) => moveCursor(event);
-      next.onmousemove = (event) => moveCursor(event);
+      container.onmousemove = (event) => moveCursor(event, true);
+      prev.onmousemove = (event) => moveCursor(event, false);
+      next.onmousemove = (event) => moveCursor(event, false);
 
-      const moveCursor = (event) => {
+      const moveCursor = (event, border) => {
+        let windowWidth = window.innerWidth;
+
         var x = event.clientX;
         var y = event.clientY;
+
         if (windowWidth / 2 < x) {
           console.log("next");
-          next.style.transform = `translate3d(${x - container.offsetLeft}px, ${
-            y - 420
-          }px, 0)`;
+          next.style.top = `${y}px`;
+          next.style.left = `${x}px`;
+          // next.style.transform = `translate3d(${x}px, ${y}px, 0)`;
           next.classList.add("active");
           prev.classList.remove("active");
         } else {
           console.log("prev");
-          prev.style.transform = `translate3d(${x - container.offsetLeft}px, ${
-            y - 420
-          }px, 0)`;
+          // prev.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+          prev.style.top = `${y}px`;
+          prev.style.left = `${x}px`;
           prev.classList.add("active");
           next.classList.remove("active");
         }
 
-        console.log(windowWidth, container.offsetLeft);
+        // console.log(x, y);
 
-        container.onmouseleave = () => {
-          prev.classList.remove("active");
-          next.classList.remove("active");
-        };
+        if (border) {
+          container.onmouseleave = () => {
+            console.log("border");
+            prev.classList.remove("active");
+            next.classList.remove("active");
+          };
+        }
       };
+    </script>
+
+    <script>
+      let index = 0;
+      const slides = document.querySelectorAll(".slide");
+      const slider = document.querySelector(".slider");
+
+      const breakWidth = 1600;
+      const mobileBreakWidth = 640;
+
+      let offset = breakWidth * 0.1;
+      let sideMargin = 0;
+
+      window.onresize = () => handleResize();
+
+      const handleResize = () => {
+        if (window.innerWidth > breakWidth) {
+          sideMargin = (window.innerWidth - breakWidth) / 2;
+        } else {
+          sideMargin = 16;
+          offset = (window.innerWidth - 32) * 0.1;
+        }
+
+        if (window.innerWidth > mobileBreakWidth) {
+          slides[0].style.marginLeft = `${offset + sideMargin}px`;
+        }
+
+        // slider.style.marginLeft = `${sideMargin}px`;
+      };
+
+      handleResize();
+
+      let slideOffset = 0;
+
+      function increaseIndex() {
+        if (index < slides.length - 1) {
+          index++;
+          updateSlider();
+        }
+      }
+
+      function decreaseIndex() {
+        if (index > 0) {
+          index--;
+          updateSlider();
+        }
+      }
+
+      function updateSlider() {
+        slides.forEach((slide) => slide.classList.remove("active-slide"));
+        slides[index].classList.add("active-slide");
+        console.log(index);
+
+        slideOffset = index * (640 + 32);
+
+        slides[0].style.marginLeft = `${offset + sideMargin - slideOffset}px`;
+        console.log(slideOffset);
+      }
     </script>
   </body>
 </html>
