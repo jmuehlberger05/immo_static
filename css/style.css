@@ -456,6 +456,7 @@ main .house-section .house__3d canvas {
   position: absolute;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 main .house-section .house__details {
   position: relative;
@@ -507,8 +508,15 @@ main .house-section .house__details::before {
   background-color: var(--clr-primary-900);
 }
 @media (max-width: 60em) {
+  main .house-section h2 {
+    font-size: calc(var(--fs-tertiary) + 1rem);
+    margin-left: 0;
+  }
   main .house-section .house {
     grid-template-columns: 1fr;
+  }
+  main .house-section .house__details h3 {
+    font-size: calc(var(--fs-tertiary) + 0.5rem);
   }
   main .house-section .house__details::before {
     display: none;

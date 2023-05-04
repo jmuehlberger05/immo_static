@@ -8,7 +8,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 var scene, camera, renderer, cube;
 
 scene = new THREE.Scene();
-camera = new THREE.PerspectiveCamera(40, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
 
 // Renderer
 renderer = new THREE.WebGLRenderer({
@@ -30,12 +30,15 @@ renderer.setClearAlpha(0.0);
 // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 // const material = new THREE.MeshNormalMaterial({ color: 0x00ff00 });
 
-const ambientLight = new THREE.AmbientLight(0xFFFFFF);
+const ambientLight = new THREE.AmbientLight(0xFFFFFF, 1);
+scene.add(ambientLight);
 
 const light = new THREE.HemisphereLight(0xFFFFFF, 0xFFFFFF, 1);
 scene.add(light);
+const pointLight = new THREE.PointLight(0xFFFFFF, 5, 100);
+pointLight.position.set(5, 5, 5);
+scene.add(pointLight);
 
-scene.add(ambientLight);
 
 var loader = new GLTFLoader();
 
@@ -43,8 +46,10 @@ var car;
 
 loader.load('./public/3d/car.gltf', function(gltf){
   car = gltf.scene;
+  car.position.setY(-0.7);
   scene.add(car);
 });
+
 
 // cube = new THREE.Mesh(geometry, material);
 
@@ -55,8 +60,8 @@ loader.load('./public/3d/car.gltf', function(gltf){
 // scene.add(cube);
 
 // Camera
-camera.position.z = 4;
-camera.position.y = 4;
+camera.position.z = 3;
+camera.position.y = 2.5;
 camera.position.x = 3;
 
 // camera.lookAt(car.position);
