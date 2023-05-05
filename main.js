@@ -1,9 +1,9 @@
 
 const canvas = document.querySelector('#bg');
 
-import * as THREE from './three';
-import { OrbitControls } from './three/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from './three/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 // import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
 // import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three-orbitcontrols@2.110.3/OrbitControls.min.js';
 // import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three-gltf-extensions@0.0.15/+esm';
