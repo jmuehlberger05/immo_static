@@ -508,12 +508,23 @@ main .house-section .house__details::before {
   background-color: var(--clr-primary-900);
 }
 @media (max-width: 60em) {
+  main .house-section {
+    margin-top: 0rem;
+  }
   main .house-section h2 {
     font-size: calc(var(--fs-tertiary) + 1rem);
     margin-left: 0;
+    padding-bottom: 2rem;
   }
   main .house-section .house {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  main .house-section .house__3d {
+    min-height: 20rem;
+  }
+  main .house-section .house__details {
+    padding-inline: 0;
   }
   main .house-section .house__details h3 {
     font-size: calc(var(--fs-tertiary) + 0.5rem);
