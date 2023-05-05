@@ -631,16 +631,25 @@ main {
 
   @media (max-width: $break-width-tablet) {
     .house-section {
+      margin-top: 0rem;
+
       h2 {
         font-size: calc(var(--fs-tertiary) + 1rem);
         margin-left: 0;
+        padding-bottom: 2rem;
       }
 
       .house {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .house__3d {
+        min-height: 20rem;
       }
 
       .house__details {
+        padding-inline: 0;
         h3 {
           font-size: calc(var(--fs-tertiary) + 0.5rem);
         }
