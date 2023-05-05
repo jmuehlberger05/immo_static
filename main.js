@@ -4,6 +4,9 @@ const canvas = document.querySelector('#bg');
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+// import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js';
+// import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three-orbitcontrols@2.110.3/OrbitControls.min.js';
+// import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three-gltf-extensions@0.0.15/+esm';
 
 var scene, camera, renderer, cube;
 
@@ -26,9 +29,9 @@ renderer.setClearAlpha(0.0);
 // document.body.appendChild( renderer.domElement );
 
 // Geometry
-// const geometry = new THREE.BoxGeometry(3.8, 3.8, 3.8);
+const geometry = new THREE.BoxGeometry(3.8, 3.8, 3.8);
 // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-// const material = new THREE.MeshNormalMaterial({ color: 0x00ff00 });
+const material = new THREE.MeshNormalMaterial({ color: 0x00ff00 });
 
 const ambientLight = new THREE.AmbientLight(0xFFFFFF, 1);
 scene.add(ambientLight);
@@ -40,24 +43,24 @@ pointLight.position.set(5, 5, 5);
 scene.add(pointLight);
 
 
-var loader = new GLTFLoader();
+// var loader = new GLTFLoader();
 
-var car;
+// var car;
 
-loader.load('./public/3d/car.gltf', function(gltf){
-  car = gltf.scene;
-  car.position.setY(-0.7);
-  scene.add(car);
-});
+// loader.load('./public/3d/car.gltf', function(gltf){
+//   car = gltf.scene;
+//   car.position.setY(-0.7);
+//   scene.add(car);
+// });
 
 
-// cube = new THREE.Mesh(geometry, material);
+cube = new THREE.Mesh(geometry, material);
 
-// cube.position.x = 0;
-// cube.position.y = 0;
-// cube.position.z = 0;
+cube.position.x = 0;
+cube.position.y = 0;
+cube.position.z = 0;
 
-// scene.add(cube);
+scene.add(cube);
 
 // Camera
 camera.position.z = 3;
