@@ -2,12 +2,13 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./assets/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Immo</title>
     <script defer type="module" src="./main.js"></script>
+    <script defer type="module" src="./slider.js"></script>
   </head>
   <body class="home">
     <!-- Header -->
@@ -150,14 +151,14 @@
         <button
           data-active="true"
           class="next-slide-btn"
-          onclick="increaseIndex()"
+          onclick="//increaseIndex()"
         >
           Next Slide
         </button>
         <button
           data-active="true"
           class="prev-slide-btn"
-          onclick="decreaseIndex()"
+          onclick="//decreaseIndex()"
         >
           Previous Slide
         </button>
@@ -291,7 +292,7 @@
 
         <article class="house left">
           <div class="house__3d">
-            <canvas id="bg"></canvas>
+            <canvas id="interactable1"></canvas>
             <div class="background"></div>
           </div>
           <div class="house__details">
@@ -327,7 +328,53 @@
             </div>
           </div>
         </article>
+
+        <!-- Second house -->
+        <article class="house right">
+          <div class="house__3d">
+            <canvas id="interactable2"></canvas>
+            <div class="background"></div>
+          </div>
+          <div class="house__details">
+            <h3>Wohnung 2</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+              laudantium odit reiciendis pariatur, quos corporis ea illum
+              quidem! Eveniet, quo?
+            </p>
+            <h4>Details</h4>
+            <ul>
+              <li><span>Wohnfläche:</span> <span>160m²</span></li>
+              <li><span>Garten:</span> <span>120m²</span></li>
+              <li><span>Balkon:</span> <span>130m²</span></li>
+              <li><span>Zimmeranzahl:</span> <span>4</span></li>
+              <li><span>Garagenplätze:</span> <span>2</span></li>
+            </ul>
+            <div class="button-container">
+              <a class="btn btn-outline" href="#">
+                <div class="btn-text">
+                  <div>Galerie</div>
+                  <div>Galerie</div>
+                </div>
+              </a>
+
+              <a class="btn btn-filled-icon" href="#">
+                <div class="btn-text">
+                  <div>Reservieren</div>
+                  <div>Reservieren</div>
+                </div>
+                <img class="btn-icon" src="./icons/arrow-right.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </article>
       </section>
+
+      <section class="slogan-section">
+        <h2 class="slogan">
+          Fertigstellung:<br />
+          Die Anlage wird im August 2024 fertiggestellt und bezugsbereit sein.
+        </h2>
     </main>
 
     <!-- footer -->
@@ -419,7 +466,7 @@
     </script>
 
     <!-- Mousetracker -->
-    <script>
+    <!-- <script>
       var container = document.querySelector(".slider");
       var prev = document.querySelector(".prev-slide-btn");
       var next = document.querySelector(".next-slide-btn");
@@ -474,10 +521,10 @@
           next.classList.remove("active");
         }
       };
-    </script>
+    </script> -->
 
     <!-- Slider Logic -->
-    <script>
+    <!-- <script>
       let index = 0;
       const slider = document.querySelector(".slider");
       const slides = slider.querySelectorAll(".slide");
@@ -554,7 +601,7 @@
         );
         // console.log(offset + sideMargin - slideOffset);
       }
-    </script>
+    </script> -->
 
     <!-- Three.js -->
   </body>
