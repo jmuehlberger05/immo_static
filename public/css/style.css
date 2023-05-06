@@ -2,6 +2,7 @@
   --clr-primary-900: #000;
   --clr-primary-900-fixed: #000;
   --clr-secondary-100: #fff;
+  --clr-secondary-300: #f2f2f2;
   --clr-secondary-100-fixed: #fff;
   --clr-accent-500: #5f8cad;
   --padding-inline-1: 1em;
@@ -87,6 +88,40 @@ body {
 }
 .btn-filled-icon:hover > .btn-icon {
   transform: translateX(5px);
+}
+
+.dropdown-btn {
+  width: 1.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: var(--border-style-1);
+  display: grid;
+  place-items: center;
+  background-color: transparent;
+  transition: var(--transition-extrashort);
+  cursor: pointer;
+}
+.dropdown-btn .dropdown-btn__arrow {
+  width: 0.7rem;
+  height: 0.7rem;
+  padding-bottom: 0.05rem;
+  transition: var(--transition-extrashort);
+}
+.dropdown-btn:hover {
+  background-color: var(--clr-primary-900);
+}
+.dropdown-btn:hover .dropdown-btn__arrow > path {
+  stroke: var(--clr-secondary-100);
+}
+.dropdown-btn[data-active=true] {
+  background-color: var(--clr-primary-900);
+}
+.dropdown-btn[data-active=true] .dropdown-btn__arrow {
+  transform: rotate(180deg);
+  padding-bottom: 0.1rem;
+}
+.dropdown-btn[data-active=true] .dropdown-btn__arrow > path {
+  stroke: var(--clr-secondary-100);
 }
 
 /*  Header + Navigation  */
@@ -264,6 +299,16 @@ main .button-container {
   height: 80px;
   gap: 1rem;
 }
+main .parallax {
+  margin-top: 2rem;
+  height: 40rem;
+}
+main .parallax .parallax__image {
+  margin-top: -2rem;
+  height: 120%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 main .slogan-section .slogan {
   font-size: 2.8rem;
   line-height: 1.1;
@@ -386,7 +431,7 @@ main .slider .active-slide .button-container {
   main .active-slide,
   main .slide {
     margin-inline: var(--padding-inline-1);
-    max-width: calc(100vw - 4 * var(--padding-inline-1));
+    max-width: calc(70vw - 4 * var(--padding-inline-1));
     height: 32rem !important;
   }
   main .active-slide h3,
@@ -396,6 +441,12 @@ main .slider .active-slide .button-container {
   main .active-slide .button-container,
   main .slide .button-container {
     opacity: 1 !important;
+  }
+}
+@media (max-width: 40em) {
+  main .active-slide,
+  main .slide {
+    max-width: calc(100vw - 4 * var(--padding-inline-1));
   }
 }
 @media (min-width: 60em) {
@@ -557,6 +608,9 @@ main .house-section .right .house__3d .background {
   main .house-section .house__details {
     padding-inline: 0;
   }
+  main .house-section .house__details p {
+    max-width: 50ch;
+  }
   main .house-section .house__details h3 {
     font-size: calc(var(--fs-tertiary) + 0.5rem);
   }
@@ -575,6 +629,74 @@ main .house-section .right .house__3d .background {
   main .right .house__3d {
     grid-column: 1/2 !important;
     grid-row: 1/2 !important;
+  }
+}
+main .faq-section {
+  padding-block: 5rem 20rem;
+}
+main .faq-section h2 {
+  width: -moz-min-content;
+  width: min-content;
+  line-height: 1;
+  font-size: calc(var(--fs-title) + 1rem);
+  text-transform: uppercase;
+  transform-origin: top right;
+  display: none;
+}
+main .faq-section .faq-wrapper {
+  margin-left: 10%;
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: auto 1fr;
+  padding-right: 10%;
+}
+main .faq-section .faq-wrapper .faq-container {
+  display: grid;
+  gap: 1rem;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+main .faq-section .faq {
+  background-color: var(--clr-secondary-300);
+  padding: 1rem;
+  border-radius: var(--border-radius-primary);
+  position: relative;
+  overflow: hidden;
+}
+main .faq-section .faq .faq__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+main .faq-section .faq .faq__header .faq-header__title {
+  font-size: calc(var(--fs-primary) + 0.2rem);
+  line-height: 1;
+  padding-top: 0.2rem;
+}
+main .faq-section .faq .faq__answer {
+  transition: var(--transition-medium);
+  display: none;
+  overflow: hidden;
+}
+main .faq-section .faq-active .faq__answer {
+  display: block;
+}
+@media (max-width: 60em) {
+  main .faq-section {
+    padding-block: 5rem 10rem;
+  }
+  main .faq-section h2 {
+    display: block;
+    padding-bottom: 2rem;
+  }
+  main .faq-section .faq-wrapper {
+    margin-left: 0;
+    padding-right: 0;
+    grid-template-columns: 1fr;
+  }
+  main .faq-section .title-image {
+    display: none;
   }
 }
 
@@ -599,5 +721,9 @@ main .house-section .right .house__3d .background {
   :root {
     --clr-primary-900: #faf6f6;
     --clr-secondary-100: #070a0e;
+    --clr-secondary-300: #1c1f24;
+  }
+  .dropdown-btn__arrow > path {
+    stroke: var(--clr-primary-900);
   }
 }/*# sourceMappingURL=style.css.map */

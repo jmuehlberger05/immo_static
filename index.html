@@ -9,10 +9,13 @@
     <title>Immo</title>
     <script defer type="module" src="./main.js"></script>
     <script defer type="module" src="./slider.js"></script>
+    <script defer type="module" src="./reveal.js"></script>
+    <script defer type="module" src="./parallax.js"></script>
   </head>
   <body class="home">
     <!-- Header -->
     <header>
+      <!-- Navigation -->
       <nav class="primary-navigation">
         <div class="primary-navigation__wrapper">
           <div class="primary-navigation__logo">
@@ -290,11 +293,14 @@
       <section class="house-section">
         <h2>Baubestandteile</h2>
 
+        <!-- First House -->
         <article class="house left">
+          <!-- 3d Model of House -->
           <div class="house__3d">
             <canvas id="interactable1"></canvas>
             <div class="background"></div>
           </div>
+          <!-- Details to that house -->
           <div class="house__details">
             <h3>Wohnung 1</h3>
             <p>
@@ -370,21 +376,137 @@
         </article>
       </section>
 
+      <!-- Slogan 2 -->
       <section class="slogan-section">
         <h2 class="slogan">
           Fertigstellung:<br />
           Die Anlage wird im August 2024 fertiggestellt und bezugsbereit sein.
         </h2>
+      </section>
+
+      <!-- Faq -->
+      <section class="faq-section">
+        <h2>FAQ</h2>
+        <div class="faq-wrapper">
+          <svg
+            class="title-image"
+            xmlns="http://www.w3.org/2000/svg"
+            width="126"
+            height="273"
+            viewBox="0 0 126 273"
+            fill="none"
+          >
+            <path
+              d="M2.74999 200.175L2.74999 272.625L110 272.625L110 256.875L63.425 256.875L65.3 258.675L65.3 204.675L50.675 204.675L50.675 258.675L52.55 256.875L15.5 256.875L17.375 258.675L17.375 200.175L2.74999 200.175ZM110 188.242L7.69999 150.442L7.69999 155.542L110 118.267L110 101.542L2.74999 140.992L2.74999 164.617L110 204.592L110 188.242ZM83.1125 185.392L83.1125 119.542L68.8625 119.542L68.8625 185.392L83.1125 185.392ZM56.375 102.217C61.925 102.217 67.1625 101.667 72.0875 100.567C76.9875 99.4668 81.5125 97.8793 85.6625 95.8043C89.7875 93.7043 93.5 91.1668 96.8 88.1918C100.075 85.2168 102.862 81.8543 105.162 78.1043C107.437 74.3543 109.187 70.2543 110.412 65.8043C111.637 61.3543 112.25 56.6168 112.25 51.5918C112.25 46.5668 111.637 41.8293 110.412 37.3793C109.187 32.9293 107.437 28.8293 105.162 25.0793C102.862 21.3293 100.075 17.9668 96.8 14.9918C93.5 12.0168 89.7875 9.49179 85.6625 7.41678C81.5125 5.31679 76.9875 3.71679 72.0875 2.61678C67.1625 1.51679 61.925 0.966788 56.375 0.966788C50.825 0.966788 45.6 1.51679 40.7 2.61679C35.775 3.71679 31.25 5.31679 27.125 7.41679C22.975 9.49179 19.2625 12.0168 15.9875 14.9918C12.6875 17.9668 9.89998 21.3293 7.62499 25.0793C5.32499 28.8293 3.56249 32.9293 2.33749 37.3793C1.11249 41.8293 0.499987 46.5668 0.499987 51.5918C0.499987 56.6168 1.11249 61.3543 2.33749 65.8043C3.56249 70.2543 5.32499 74.3543 7.62499 78.1043C9.89999 81.8543 12.6875 85.2168 15.9875 88.1918C19.2625 91.1668 22.975 93.7043 27.125 95.8043C31.25 97.8793 35.775 99.4668 40.7 100.567C45.6 101.667 50.825 102.217 56.375 102.217ZM56.375 86.4668C52.075 86.4668 48.075 86.1168 44.375 85.4168C40.675 84.6918 37.3 83.6418 34.25 82.2668C31.175 80.8918 28.45 79.2043 26.075 77.2043C23.7 75.2043 21.7 72.9168 20.075 70.3418C18.45 67.7418 17.225 64.8793 16.4 61.7543C15.55 58.6043 15.125 55.2168 15.125 51.5918C15.125 47.9668 15.55 44.5918 16.4 41.4668C17.225 38.3168 18.45 35.4543 20.075 32.8793C21.7 30.2793 23.7 27.9793 26.075 25.9793C28.45 23.9793 31.175 22.2918 34.25 20.9168C37.3 19.5418 40.675 18.5043 44.375 17.8043C48.075 17.0793 52.075 16.7168 56.375 16.7168C60.675 16.7168 64.675 17.0793 68.375 17.8043C72.075 18.5043 75.4625 19.5418 78.5375 20.9168C81.5875 22.2918 84.3 23.9793 86.675 25.9793C89.05 27.9793 91.05 30.2793 92.675 32.8793C94.3 35.4543 95.5375 38.3168 96.3875 41.4668C97.2125 44.5918 97.625 47.9668 97.625 51.5918C97.625 55.2168 97.2125 58.6043 96.3875 61.7543C95.5375 64.8793 94.3 67.7418 92.675 70.3418C91.05 72.9168 89.05 75.2043 86.675 77.2043C84.3 79.2043 81.5875 80.8918 78.5375 82.2668C75.4625 83.6418 72.075 84.6918 68.375 85.4168C64.675 86.1168 60.675 86.4668 56.375 86.4668ZM107.862 36.4418L125.9 21.3293L125.9 3.70428L100.325 27.1418L107.862 36.4418Z"
+              fill="var(--clr-primary-900)"
+            />
+          </svg>
+
+          <div class="faq-container">
+            <!-- Faq 1 -->
+            <div class="faq">
+              <div class="faq__header">
+                <h3 class="faq-header__title">
+                  Wie kann ich eine Wohnung reservieren?
+                </h3>
+                <button class="dropdown-btn faq-ddb" data-active="false">
+                  <svg
+                    class="dropdown-btn__arrow"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="7"
+                    viewBox="0 0 10 7"
+                    fill="none"
+                  >
+                    <path
+                      d="M1.46997 5.26023L4.99997 1.74023L8.52997 5.26023"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="faq__answer">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+                  laudantium odit reiciendis pariatur, quos corporis ea illum
+                  quidem! Eveniet, quo?
+                </p>
+              </div>
+            </div>
+
+            <!-- Faq 2 -->
+            <div class="faq">
+              <div class="faq__header">
+                <h3 class="faq-header__title">Wer finanziert das Projekt?</h3>
+                <button class="dropdown-btn faq-ddb" data-active="false">
+                  <svg
+                    class="dropdown-btn__arrow"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="7"
+                    viewBox="0 0 10 7"
+                    fill="none"
+                  >
+                    <path
+                      d="M1.46997 5.26023L4.99997 1.74023L8.52997 5.26023"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="faq__answer">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+                  laudantium odit reiciendis pariatur, quos corporis ea illum
+                  quidem! Eveniet, quo?
+                </p>
+              </div>
+            </div>
+
+            <!-- Faq 3 -->
+            <div class="faq">
+              <div class="faq__header">
+                <h3 class="faq-header__title">Wieviel kostet eine Wohnung?</h3>
+                <button class="dropdown-btn faq-ddb" data-active="false">
+                  <svg
+                    class="dropdown-btn__arrow"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="7"
+                    viewBox="0 0 10 7"
+                    fill="none"
+                  >
+                    <path
+                      d="M1.46997 5.26023L4.99997 1.74023L8.52997 5.26023"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="faq__answer">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+                  laudantium odit reiciendis pariatur, quos corporis ea illum
+                  quidem! Eveniet, quo?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- footer -->
     <footer></footer>
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-
-    <!-- Scripts -->
 
     <!-- Menu -->
     <script>
@@ -402,207 +524,15 @@
       }
     </script>
 
-    <!-- Reveal H1 -->
+    <!-- Dropdown -->
     <script>
-      const tl = gsap.timeline();
-
-      let skew = 8;
-      let delay = 0.5;
-      let duration = 1;
-
-      if (window.innerWidth < 640) {
-        skew = 30;
-        delay = 0.8;
-        duration = 1.5;
-      }
-
-      tl.from(".line span", 1, {
-        y: 200,
-        ease: "power-ease-4",
-        delay: 0,
-        skewY: skew,
-        stagger: {
-          amount: 0.3,
-        },
-      });
-
-      tl.from(
-        ".hero-section__content",
-        duration,
-        {
-          ease: "power-ease-4",
-          delay: delay,
-          opacity: 0,
-          stagger: {
-            amount: 0.3,
-          },
-        },
-        "-=1"
-      );
-    </script>
-
-    <!-- Parallax -->
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-
-      gsap.utils.toArray(".parallax").forEach(function (container) {
-        let image = container.querySelector("img");
-
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: container,
-            scrub: true,
-            pin: false,
-          },
-        });
-        tl.from(image, {
-          yPercent: -20,
-          ease: "none",
-        }).to(image, {
-          yPercent: 20,
-          ease: "none",
+      document.querySelectorAll(".faq-ddb").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const active = btn.dataset.active === "true";
+          btn.dataset.active = !active;
+          btn.parentElement.parentElement.classList.toggle("faq-active");
         });
       });
     </script>
-
-    <!-- Mousetracker -->
-    <!-- <script>
-      var container = document.querySelector(".slider");
-      var prev = document.querySelector(".prev-slide-btn");
-      var next = document.querySelector(".next-slide-btn");
-
-      window.onmousemove = (event) => moveCursor(event);
-      prev.onmousemove = (event) => moveCursor(event);
-      next.onmousemove = (event) => moveCursor(event);
-
-      const moveCursor = (event, border) => {
-        let windowWidth = window.innerWidth;
-
-        var x = event.clientX;
-        var y = event.clientY;
-
-        let windowScrollTop = window.pageYOffset;
-        let sliderOffset = container.offsetTop;
-        let sliderHeight = container.offsetHeight;
-
-        let relativeTop = sliderOffset - windowScrollTop;
-        // console.log("top: " + relativeTop);
-
-        let relativeBottom = relativeTop + sliderHeight;
-        // console.log("bottom: " + relativeBottom);
-
-        // console.log("Y: " + y);
-
-        if (windowWidth / 2 < x) {
-          // console.log("next");
-          next.style.top = `${y}px`;
-          next.style.left = `${x}px`;
-          next.classList.add("active");
-          prev.classList.remove("active");
-        } else {
-          // console.log("prev");
-          prev.style.top = `${y}px`;
-          prev.style.left = `${x}px`;
-          prev.classList.add("active");
-          next.classList.remove("active");
-        }
-
-        // console.log("Height" + container.offsetHeight);
-        // console.log("Top" + container.offsetTop);
-        // console.log("WindowHeight" + window.pageYOffset);
-
-        if (y > relativeTop && y < relativeBottom) {
-          // console.log("in");
-        } else {
-          // console.log("out");
-          prev.style.top = 0;
-          next.style.top = 0;
-          prev.classList.remove("active");
-          next.classList.remove("active");
-        }
-      };
-    </script> -->
-
-    <!-- Slider Logic -->
-    <!-- <script>
-      let index = 0;
-      const slider = document.querySelector(".slider");
-      const slides = slider.querySelectorAll(".slide");
-
-      const breakWidth = 100 * 16;
-      const mobileBreakWidth = 40 * 16;
-      const tabletBreakWidth = 60 * 16;
-
-      let offset = breakWidth * 0.1;
-      let sideMargin = 0;
-
-      let slideOffset = 0;
-
-      window.onresize = () => handleResize();
-
-      // set margin of first slide
-      const handleResize = () => {
-        if (window.innerWidth > breakWidth) {
-          sideMargin = (window.innerWidth - breakWidth) / 2;
-        } else {
-          sideMargin = 16;
-          offset = (window.innerWidth - 32) * 0.1;
-        }
-
-        if (window.innerWidth > mobileBreakWidth) {
-          slides[0].style.marginLeft = `${offset + sideMargin}px`;
-        }
-
-        // Make all slides active on mobile and disable buttons
-        if (window.innerWidth <= tabletBreakWidth) {
-          slides.forEach((slide) => {
-            slide.classList.add("active-slide");
-            // console.log("active-slide");
-          });
-          next.style.display = "none";
-          prev.style.display = "none";
-        } else {
-          slides.forEach((slide) => slide.classList.remove("active-slide"));
-          slides[index].classList.add("active-slide");
-          next.style.display = "block";
-          prev.style.display = "block";
-        }
-
-        updateSlider();
-      };
-
-      handleResize();
-
-      // onclick function of buttons
-      function increaseIndex() {
-        if (index < slides.length - 1) {
-          index++;
-          updateSlider();
-        }
-      }
-
-      function decreaseIndex() {
-        if (index > 0) {
-          index--;
-          updateSlider();
-        }
-      }
-
-      // update slider
-      function updateSlider() {
-        slides.forEach((slide) => slide.classList.remove("active-slide"));
-        slides[index].classList.add("active-slide");
-        console.log("Index: " + index);
-
-        slideOffset = index * (640 + 32);
-
-        slides.forEach(
-          (slide) => (slide.style.transform = `translateX(${-slideOffset}px)`)
-        );
-        // console.log(offset + sideMargin - slideOffset);
-      }
-    </script> -->
-
-    <!-- Three.js -->
   </body>
 </html>

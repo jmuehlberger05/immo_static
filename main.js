@@ -81,6 +81,12 @@ function animate() {
 
 animate();
 
+window.onresize = function() {
+  camera.aspect = canvas.clientWidth / canvas.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+}
+
 
 /* Second frame */
 // Delete when reactified
@@ -128,7 +134,7 @@ loader2.load('./3d/car.gltf', function(gltf){
 // Set Camera Position
 camera2.position.z = 3;
 camera2.position.y = 2.5;
-camera2.position.x = 3;
+camera2.position.x = -3;
 camera2.enabledampening = true;
 
 // Controls
