@@ -40,7 +40,7 @@ $break-width-tablet: 60em;
 
 @font-face {
   font-family: "Nohemi";
-  src: url(../public/fonts/Nohemi-Variable.ttf) format("truetype");
+  src: url(../fonts/Nohemi-Variable.ttf) format("truetype");
   font-weight: 100 900;
 }
 
@@ -520,11 +520,11 @@ main {
     }
 
     .next-slide-btn {
-      background-image: url(../public/icons/arrow-right-black.svg);
+      background-image: url(../icons/arrow-right-black.svg);
     }
 
     .prev-slide-btn {
-      background-image: url(../public/icons/arrow-left-black.svg);
+      background-image: url(../icons/arrow-left-black.svg);
     }
 
     .active {
