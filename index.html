@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/style.css" />
     <title>Immo</title>
     <script defer type="module" src="./main.js"></script>
+    <script defer type="module" src="./slider2.js"></script>
     <script defer type="module" src="./slider.js"></script>
     <script defer type="module" src="./reveal.js"></script>
     <script defer type="module" src="./parallax.js"></script>
@@ -153,20 +154,20 @@
       <section class="slider-section">
         <button
           data-active="true"
-          class="next-slide-btn"
+          class="next-slide-btn next1"
           onclick="//increaseIndex()"
         >
           Next Slide
         </button>
         <button
           data-active="true"
-          class="prev-slide-btn"
+          class="prev-slide-btn prev1"
           onclick="//decreaseIndex()"
         >
           Previous Slide
         </button>
 
-        <div class="slider">
+        <div class="slider slider1">
           <!-- first Slide -->
           <div
             class="slide active-slide"
@@ -384,6 +385,57 @@
         </h2>
       </section>
 
+      <!-- Slider Section 2-->
+      <section class="slider-section">
+        <button
+          data-active="true"
+          class="next-slide-btn next2"
+          onclick="//increaseIndex()"
+        >
+          Next Slide
+        </button>
+        <button
+          data-active="true"
+          class="prev-slide-btn prev2"
+          onclick="//decreaseIndex()"
+        >
+          Previous Slide
+        </button>
+
+        <div class="slider2 slider">
+          <!-- first Slide -->
+          <div
+            class="slide active-slide"
+            style="background-image: url(./images/Image10.jpg)"
+          ></div>
+
+          <!-- Second Slide -->
+          <div
+            class="slide"
+            style="background-image: url(./images/image9.jpg)"
+          ></div>
+
+          <!-- Third Slide -->
+          <div
+            class="slide"
+            style="
+              background-image:
+                url(./images/Image11.jpg);
+            "
+          >
+          </div>
+
+          <!-- Fourth Slide -->
+          <div
+            class="slide"
+            style="
+              background-image: 
+                url(./images/image8.jpg);
+            "
+          >
+        </div>
+      </section>
+
       <!-- Faq -->
       <section class="faq-section">
         <h2>FAQ</h2>
@@ -430,9 +482,16 @@
               </div>
               <div class="faq__answer">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  laudantium odit reiciendis pariatur, quos corporis ea illum
-                  quidem! Eveniet, quo?
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                  sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                  ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                  nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                  sea takimata sanctus est Lorem ipsum dolor sit amet.
                 </p>
               </div>
             </div>
@@ -462,9 +521,11 @@
               </div>
               <div class="faq__answer">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                  laudantium odit reiciendis pariatur, quos corporis ea illum
-                  quidem! Eveniet, quo?
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                  justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                  sea takimata sanctus est Lorem ipsum dolor sit amet.
                 </p>
               </div>
             </div>
@@ -500,6 +561,57 @@
                 </p>
               </div>
             </div>
+
+            <!-- Faq 4 -->
+            <div class="faq">
+              <div class="faq__header">
+                <h3 class="faq-header__title">Wie groß sind die Wohnungen?</h3>
+                <button class="dropdown-btn faq-ddb" data-active="false">
+                  <svg
+                    class="dropdown-btn__arrow"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="7"
+                    viewBox="0 0 10 7"
+                    fill="none"
+                  >
+                    <path
+                      d="M1.46997 5.26023L4.99997 1.74023L8.52997 5.26023"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="faq__answer">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+                  laudantium odit reiciendis pariatur, quos corporis ea illum
+                  quidem! Eveniet, quo?
+                </p>
+              </div>
+            </div>
+
+            <div class="button-container">
+              <!-- Outlined Button -->
+              <a class="btn btn-outline" href="./index.html">
+                <div class="btn-text">
+                  <div>Mehr FAQ</div>
+                  <div>Mehr FAQ</div>
+                </div>
+              </a>
+
+              <!-- Filled Button -->
+              <a class="btn btn-filled-icon" href="./contact.html">
+                <div class="btn-text">
+                  <div>Jetzt direkt anfragen</div>
+                  <div>Jetzt direkt anfragen</div>
+                </div>
+                <img class="btn-icon" src="./icons/arrow-right.svg" alt="" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -530,7 +642,15 @@
         btn.addEventListener("click", () => {
           const active = btn.dataset.active === "true";
           btn.dataset.active = !active;
+          var content =
+            btn.parentElement.parentElement.querySelector(".faq__answer");
           btn.parentElement.parentElement.classList.toggle("faq-active");
+
+          if (active) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + 20 + "px";
+          }
         });
       });
     </script>

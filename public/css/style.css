@@ -17,10 +17,12 @@
   --border-radius-pill: 100vh;
   --border-radius-primary: 15px;
   --custom-ease-1: cubic-bezier(0.06, 0.85, 0.58, 1);
-  --custon-ease-2: cubic-bezier(0.11, 0.47, 0.31, 0.88);
-  --transition-medium: all 700ms var(--custon-ease-2);
-  --transition-short: all 500ms var(--custon-ease-2);
-  --transition-extrashort: all 200ms var(--custon-ease-2);
+  --custom-ease-2: cubic-bezier(0.11, 0.47, 0.31, 0.88);
+  --custom-ease-3: cubic-bezier(0.58, 0, 0.4, 0.9);
+  --transition-medium: all 700ms var(--custom-ease-2);
+  --transition-short: all 500ms var(--custom-ease-2);
+  --transition-extrashort: all 200ms var(--custom-ease-2);
+  --transition-mediumlong-3: all 900ms var(--custom-ease-3);
   --header-height: 100px;
 }
 
@@ -92,6 +94,7 @@ body {
 
 .dropdown-btn {
   width: 1.5rem;
+  height: 1.5rem;
   aspect-ratio: 1;
   border-radius: 50%;
   border: var(--border-style-1);
@@ -300,14 +303,22 @@ main .button-container {
   gap: 1rem;
 }
 main .parallax {
-  margin-top: 2rem;
-  height: 40rem;
+  margin-block: 5rem;
+  height: 55rem;
+  position: relative;
+  border-radius: var(--border-radius-primary);
+  overflow: hidden;
 }
 main .parallax .parallax__image {
   margin-top: -2rem;
   height: 120%;
+  transform: scale(1.05);
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+main .slogan-section {
+  padding-block: 5rem;
 }
 main .slogan-section .slogan {
   font-size: 2.8rem;
@@ -331,7 +342,8 @@ main .slogan-section > * {
     font-size: 9.4vw;
   }
   main .hero-section .parallax {
-    margin-top: 1rem;
+    -webkit-margin-before: 1rem;
+            margin-block-start: 1rem;
     height: 25rem;
   }
   main .hero-section .parallax .parallax__image {
@@ -347,20 +359,12 @@ main .slogan-section > * {
     font-size: 1.8rem;
   }
 }
-main .parallax {
-  margin-top: 5rem;
-  position: relative;
-  border-radius: var(--border-radius-primary);
-  overflow: hidden;
-  margin-bottom: 5rem;
-}
-main .parallax .parallax__image {
-  transform: scale(1.05);
-  width: 100%;
-}
 main .slider-section {
   margin-top: 2rem;
   margin-bottom: 10rem;
+}
+main .slider-section:nth-of-type(even) {
+  margin-top: 5rem;
 }
 main .slider {
   display: grid;
@@ -387,7 +391,7 @@ main .slider .slide {
   background-repeat: no-repeat;
   background-position: center center;
   z-index: 1;
-  transition: var(--transition-medium);
+  transition: var(--transition-mediumlong-3);
 }
 main .slider .slide .slide__content {
   display: flex;
@@ -479,7 +483,7 @@ main .slider .active-slide .button-container {
 }
 main .house-section {
   margin-top: 5rem;
-  padding-bottom: 8rem;
+  padding-bottom: 5rem;
 }
 main .house-section h2 {
   margin-left: 10%;
@@ -656,18 +660,22 @@ main .faq-section .faq-wrapper .faq-container {
   height: -moz-fit-content;
   height: fit-content;
 }
+main .faq-section .faq-wrapper .faq-container .button-container {
+  margin-top: 1rem;
+}
 main .faq-section .faq {
   background-color: var(--clr-secondary-300);
   padding: 1rem;
   border-radius: var(--border-radius-primary);
   position: relative;
   overflow: hidden;
+  height: -moz-min-content;
+  height: min-content;
 }
 main .faq-section .faq .faq__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1rem;
 }
 main .faq-section .faq .faq__header .faq-header__title {
   font-size: calc(var(--fs-primary) + 0.2rem);
@@ -675,12 +683,20 @@ main .faq-section .faq .faq__header .faq-header__title {
   padding-top: 0.2rem;
 }
 main .faq-section .faq .faq__answer {
-  transition: var(--transition-medium);
-  display: none;
+  transition: var(--transition-short);
+  position: relative;
+  max-height: 0;
+  will-change: max-height;
   overflow: hidden;
+  padding-top: 0rem;
+  opacity: 0;
+}
+main .faq-section .faq-active .faq-header {
+  margin-bottom: 1rem;
 }
 main .faq-section .faq-active .faq__answer {
-  display: block;
+  padding-block: 20px;
+  opacity: 1;
 }
 @media (max-width: 60em) {
   main .faq-section {
@@ -717,6 +733,7 @@ main .faq-section .faq-active .faq__answer {
     display: block;
   }
 }
+/*  Dark Mode  */
 @media (prefers-color-scheme: dark) {
   :root {
     --clr-primary-900: #faf6f6;

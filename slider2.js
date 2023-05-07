@@ -2,10 +2,9 @@
 // @Author: Jakob Mühlberger
 
 // Get the slider container and the buttons
-var container = document.querySelector(".slider1");
-// var prev = document.querySelector(".prev-slide-btn");
-var prev = document.querySelector(".prev1");
-var next = document.querySelector(".next1");
+var container = document.querySelector(".slider2");
+var prev = document.querySelector(".prev2");
+var next = document.querySelector(".next2");
 const slides = container.querySelectorAll(".slide");
 
 // Execute the moveCursor function on mousemove event on the window and the buttons
@@ -58,7 +57,7 @@ const moveCursor = (event) => {
 
 
 
-let index = 0;
+let index = 1;
 
 const breakWidth = 100 * 16;
 const mobileBreakWidth = 40 * 16;
@@ -104,18 +103,18 @@ const handleResize = () => {
 
 handleResize();
 
-prev.addEventListener("click", () => decreaseIndex());
-next.addEventListener("click", () => increaseIndex());
+prev.addEventListener("click", () => decreaseIndex1());
+next.addEventListener("click", () => increaseIndex1());
 
 // onclick function of buttons
-function increaseIndex() {
+function increaseIndex1() {
     if (index < slides.length - 1) {
         index++;
         updateSlider();
     }
 }
 
-function decreaseIndex() {
+function decreaseIndex1() {
     if (index > 0) {
         index--;
         updateSlider();
@@ -126,7 +125,7 @@ function decreaseIndex() {
 function updateSlider() {
     slides.forEach((slide) => slide.classList.remove("active-slide"));
     slides[index].classList.add("active-slide");
-    console.log("Index: " + index);
+    console.log("Index1: " + index);
 
     slideOffset = index * (640 + 32);
 
