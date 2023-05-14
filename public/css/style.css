@@ -24,6 +24,7 @@
   --transition-extrashort: all 200ms var(--custom-ease-2);
   --transition-mediumlong-3: all 900ms var(--custom-ease-3);
   --header-height: 100px;
+  --footer-height: 400px;
 }
 
 @font-face {
@@ -265,6 +266,10 @@ header .hamburger[data-active=true] .hamburger__line {
 }
 
 /*  Main  */
+main {
+  background-color: var(--clr-secondary-100);
+  margin-bottom: var(--footer-height);
+}
 main section:not(.slider-section) {
   padding-inline: var(--padding-inline-1);
   max-width: 100em;
@@ -351,6 +356,9 @@ main .slogan-section > * {
     height: 120%;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+  main .slogan-section {
+    padding-block: 0rem;
   }
   main .slogan-section > * {
     margin-left: 0%;
@@ -636,7 +644,7 @@ main .house-section .right .house__3d .background {
   }
 }
 main .faq-section {
-  padding-block: 5rem 20rem;
+  padding-block: 5rem 10rem;
 }
 main .faq-section h2 {
   width: -moz-min-content;
@@ -700,7 +708,7 @@ main .faq-section .faq-active .faq__answer {
 }
 @media (max-width: 60em) {
   main .faq-section {
-    padding-block: 5rem 10rem;
+    padding-block: 0rem 10rem;
   }
   main .faq-section h2 {
     display: block;
@@ -714,6 +722,32 @@ main .faq-section .faq-active .faq__answer {
   main .faq-section .title-image {
     display: none;
   }
+}
+
+footer {
+  height: var(--footer-height);
+  background-color: var(--clr-secondary-300);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+footer .footer__container {
+  max-width: 100em;
+  padding: 4rem var(--padding-inline-1);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+footer h3 {
+  font-size: calc(var(--fs-tertiary) + 0.5rem);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+footer p {
+  max-width: 50ch;
 }
 
 /*  Utility Classes  */

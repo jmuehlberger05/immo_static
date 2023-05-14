@@ -38,6 +38,7 @@
   --transition-mediumlong-3: all 900ms var(--custom-ease-3);
 
   --header-height: 100px;
+  --footer-height: 400px;
 }
 
 $break-width-1: 100em;
@@ -332,6 +333,9 @@ header {
 /*  Main  */
 
 main {
+  background-color: var(--clr-secondary-100);
+  margin-bottom: var(--footer-height);
+
   section:not(.slider-section) {
     padding-inline: var(--padding-inline-1);
     max-width: $break-width-1;
@@ -435,6 +439,8 @@ main {
       }
     }
     .slogan-section {
+      padding-block: 0rem;
+
       & > * {
         margin-left: 0%;
       }
@@ -797,7 +803,7 @@ main {
   // FAQ Section
 
   .faq-section {
-    padding-block: 5rem 20rem;
+    padding-block: 5rem 10rem;
     h2 {
       // margin-left: 10%;
       width: min-content;
@@ -877,7 +883,7 @@ main {
 
   @media (max-width: $break-width-tablet) {
     .faq-section {
-      padding-block: 5rem 10rem;
+      padding-block: 0rem 10rem;
 
       h2 {
         display: block;
@@ -894,6 +900,36 @@ main {
         display: none;
       }
     }
+  }
+}
+
+footer {
+  height: var(--footer-height);
+  background-color: var(--clr-secondary-300);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+
+  & .footer__container {
+    max-width: $break-width-1;
+    padding: 4rem var(--padding-inline-1);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  h3 {
+    font-size: calc(var(--fs-tertiary) + 0.5rem);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    max-width: 50ch;
   }
 }
 

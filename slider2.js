@@ -56,8 +56,10 @@ const moveCursor = (event) => {
 };
 
 
-
-let index = 1;
+let index = 0;
+if(window.innerWidth > 40 * 16){
+    index = 1;
+}
 
 const breakWidth = 100 * 16;
 const mobileBreakWidth = 40 * 16;
